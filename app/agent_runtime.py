@@ -5,7 +5,7 @@ import logging
 import sys
 import time
 import uuid
-
+import os
 from contextlib import (
     AsyncExitStack,
 )
@@ -251,7 +251,8 @@ class AgentRuntime:
                     str(
                         MCP_SERVER_FILE
                     )
-                ],
+            ]   ,
+                env=os.environ.copy(),
             )
         )
 
