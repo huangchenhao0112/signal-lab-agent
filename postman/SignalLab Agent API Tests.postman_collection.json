@@ -1,0 +1,549 @@
+{
+  "info": {
+    "_postman_id": "1c117130-56aa-4433-8bdc-fd930be2908f",
+    "name": "SignalLab Agent API Tests",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "58980445",
+    "_collection_link": "https://go.postman.co/collection/58980445-1c117130-56aa-4433-8bdc-fd930be2908f?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "01 Health",
+      "item": [
+        {
+          "name": "Agent Health",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\r\n    \"HTTP状态码为200\",\r\n    function () {\r\n        pm.response.to.have.status(200);\r\n    }\r\n);\r\n\r\npm.test(\r\n    \"Agent整体状态正常\",\r\n    function () {\r\n        const data = pm.response.json();\r\n\r\n        pm.expect(data.ok).to.eql(true);\r\n    }\r\n);\r\n\r\npm.test(\r\n    \"MySQL正常\",\r\n    function () {\r\n        const data = pm.response.json();\r\n\r\n        pm.expect(data.mysql).to.eql(true);\r\n    }\r\n);\r\n\r\npm.test(\r\n    \"Redis正常\",\r\n    function () {\r\n        const data = pm.response.json();\r\n\r\n        pm.expect(data.redis).to.eql(true);\r\n    }\r\n);\r\n\r\npm.test(\r\n    \"MCP正常\",\r\n    function () {\r\n        const data = pm.response.json();\r\n\r\n        pm.expect(data.mcp).to.eql(true);\r\n    }\r\n);\r\n\r\npm.test(\r\n    \"LangGraph正常\",\r\n    function () {\r\n        const data = pm.response.json();\r\n\r\n        pm.expect(data.graph).to.eql(true);\r\n    }\r\n);\r\n\r\npm.test(\r\n    \"Tool数量大于0\",\r\n    function () {\r\n        const data = pm.response.json();\r\n\r\n        pm.expect(\r\n            data.tool_count\r\n        ).to.be.above(0);\r\n    }\r\n);"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/agent/health",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "agent",
+                "health"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Agent Tools",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\r\n    \"HTTP状态码为200\",\r\n    function () {\r\n        pm.response.to.have.status(200);\r\n    }\r\n);\r\n\r\npm.test(\r\n    \"Tools接口成功\",\r\n    function () {\r\n        const data = pm.response.json();\r\n\r\n        pm.expect(data.ok).to.eql(true);\r\n        pm.expect(data.count).to.be.above(0);\r\n    }\r\n);\r\n\r\npm.test(\r\n    \"包含核心MCP工具\",\r\n    function () {\r\n        const data = pm.response.json();\r\n\r\n        const names = data.tools.map(\r\n            tool => tool.name\r\n        );\r\n\r\n        pm.expect(names).to.include(\r\n            \"get_model_metrics\"\r\n        );\r\n\r\n        pm.expect(names).to.include(\r\n            \"search_research_docs\"\r\n        );\r\n\r\n        pm.expect(names).to.include(\r\n            \"analyze_model_performance\"\r\n        );\r\n    }\r\n);"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/agent/tools",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "agent",
+                "tools"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "02 Auth",
+      "item": [
+        {
+          "name": "Chat - No Token",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\r\n    \"无Token请求被拒绝\",\r\n    function () {\r\n        pm.expect(\r\n            pm.response.code\r\n        ).to.be.oneOf(\r\n            [401, 403]\r\n        );\r\n    }\r\n);"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"message\": \"介绍一下你的能力\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/agent/chat",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "agent",
+                "chat"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Chat - Invalid Token",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\r\n    \"非法JWT被拒绝\",\r\n    function () {\r\n        pm.response.to.have.status(401);\r\n    }\r\n);"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "invalid-token",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"message\": \"介绍一下你的能力\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/agent/chat",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "agent",
+                "chat"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "03 Agent",
+      "item": [
+        {
+          "name": "Chat - Capability",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\r\n    \"Capability请求成功\",\r\n    function () {\r\n        pm.response.to.have.status(200);\r\n    }\r\n);\r\n\r\npm.test(\r\n    \"返回标准Agent结构\",\r\n    function () {\r\n        const data = pm.response.json();\r\n\r\n        pm.expect(data.ok).to.eql(true);\r\n\r\n        pm.expect(\r\n            data\r\n        ).to.have.property(\r\n            \"session_id\"\r\n        );\r\n\r\n        pm.expect(\r\n            data\r\n        ).to.have.property(\r\n            \"trace_id\"\r\n        );\r\n\r\n        pm.expect(\r\n            data\r\n        ).to.have.property(\r\n            \"route\"\r\n        );\r\n\r\n        pm.expect(\r\n            data\r\n        ).to.have.property(\r\n            \"answer\"\r\n        );\r\n\r\n        pm.expect(\r\n            data\r\n        ).to.have.property(\r\n            \"latency_ms\"\r\n        );\r\n    }\r\n);"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"message\": \"介绍一下你的能力\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/agent/chat",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "agent",
+                "chat"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Chat - Metric",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\r\n    \"Metric请求成功\",\r\n    function () {\r\n        pm.response.to.have.status(200);\r\n    }\r\n);\r\n\r\npm.test(\r\n    \"正确进入metric路由\",\r\n    function () {\r\n        const data = pm.response.json();\r\n\r\n        pm.expect(\r\n            data.route\r\n        ).to.eql(\r\n            \"metric\"\r\n        );\r\n    }\r\n);\r\n\r\npm.test(\r\n    \"调用正确指标Tool\",\r\n    function () {\r\n        const data = pm.response.json();\r\n\r\n        pm.expect(\r\n            data.tools_used\r\n        ).to.include(\r\n            \"get_model_metrics\"\r\n        );\r\n    }\r\n);"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"message\": \"NCSD-Net在overall下的hit_rate是多少？\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/agent/chat",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "agent",
+                "chat"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Chat - RAG",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\r\n    \"RAG请求成功\",\r\n    function () {\r\n        pm.response.to.have.status(200);\r\n    }\r\n);\r\n\r\npm.test(\r\n    \"正确进入rag路由\",\r\n    function () {\r\n        const data = pm.response.json();\r\n\r\n        pm.expect(\r\n            data.route\r\n        ).to.eql(\r\n            \"rag\"\r\n        );\r\n    }\r\n);\r\n\r\npm.test(\r\n    \"调用文档检索Tool\",\r\n    function () {\r\n        const data = pm.response.json();\r\n\r\n        pm.expect(\r\n            data.tools_used\r\n        ).to.include(\r\n            \"search_research_docs\"\r\n        );\r\n    }\r\n);"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"message\": \"NCSD-Net的模型结构是什么？\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/agent/chat",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "agent",
+                "chat"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Chat - Planner",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\r\n    \"Planner请求成功\",\r\n    function () {\r\n        pm.response.to.have.status(200);\r\n    }\r\n);\r\n\r\npm.test(\r\n    \"正确进入plan路由\",\r\n    function () {\r\n        const data = pm.response.json();\r\n\r\n        pm.expect(\r\n            data.route\r\n        ).to.eql(\r\n            \"plan\"\r\n        );\r\n    }\r\n);\r\n\r\npm.test(\r\n    \"生成多步Tool计划\",\r\n    function () {\r\n        const data = pm.response.json();\r\n\r\n        pm.expect(\r\n            data.tool_plan.length\r\n        ).to.be.at.least(2);\r\n\r\n        pm.expect(\r\n            data.tools_used.length\r\n        ).to.be.at.least(2);\r\n    }\r\n);"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"message\": \"比较NCSD-Net、TFA-Net和HCTFR-Net在low_snr下的表现，解释原因，并生成peak_f1对比图。\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/agent/chat",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "agent",
+                "chat"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "04 Session",
+      "item": [
+        {
+          "name": "Create Session",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\r\n    \"创建会话成功\",\r\n    function () {\r\n        pm.response.to.have.status(200);\r\n    }\r\n);\r\n\r\npm.test(\r\n    \"返回session_id\",\r\n    function () {\r\n        const data = pm.response.json();\r\n\r\n        pm.expect(\r\n            data.session_id\r\n        ).to.be.a(\r\n            \"string\"\r\n        );\r\n\r\n        pm.expect(\r\n            data.session_id.length\r\n        ).to.be.above(0);\r\n    }\r\n);\r\n\r\nconst data = pm.response.json();\r\n\r\nif (data.session_id) {\r\n    pm.environment.set(\r\n        \"session_id\",\r\n        data.session_id\r\n    );\r\n}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"message\": \"请介绍NCSD-Net的模型结构。\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/agent/chat",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "agent",
+                "chat"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Continue Session",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\r\n    \"连续会话成功\",\r\n    function () {\r\n        pm.response.to.have.status(200);\r\n    }\r\n);\r\n\r\npm.test(\r\n    \"Session ID保持一致\",\r\n    function () {\r\n        const data = pm.response.json();\r\n\r\n        pm.expect(\r\n            data.session_id\r\n        ).to.eql(\r\n            pm.environment.get(\r\n                \"session_id\"\r\n            )\r\n        );\r\n    }\r\n);\r\n\r\npm.test(\r\n    \"回答非空\",\r\n    function () {\r\n        const data = pm.response.json();\r\n\r\n        pm.expect(\r\n            data.answer\r\n        ).to.be.a(\r\n            \"string\"\r\n        );\r\n\r\n        pm.expect(\r\n            data.answer.length\r\n        ).to.be.above(0);\r\n    }\r\n);"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"session_id\": \"{{session_id}}\",\r\n    \"message\": \"那它主要有哪些创新点？\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/agent/chat",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "agent",
+                "chat"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Session",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\r\n    \"删除Session成功\",\r\n    function () {\r\n        pm.response.to.have.status(200);\r\n    }\r\n);\r\n\r\npm.test(\r\n    \"删除操作返回成功状态\",\r\n    function () {\r\n        const data = pm.response.json();\r\n\r\n        pm.expect(\r\n            data.ok\r\n        ).to.eql(true);\r\n    }\r\n);"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/agent/sessions/{{session_id}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "agent",
+                "sessions",
+                "{{session_id}}"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Validation",
+      "item": [
+        {
+          "name": "Missing Message",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\r\n    \"缺失message返回422\",\r\n    function () {\r\n        pm.response.to.have.status(422);\r\n    }\r\n);"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/agent/chat",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "agent",
+                "chat"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Empty Message",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"message\": \"\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/agent/chat",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "agent",
+                "chat"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Normal Message",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"message\": \"介绍一下你的能力\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/agent/chat",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "agent",
+                "chat"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{token}}",
+        "type": "string"
+      }
+    ]
+  }
+}

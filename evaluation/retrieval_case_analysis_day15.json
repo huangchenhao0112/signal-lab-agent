@@ -1,0 +1,1204 @@
+[
+  {
+    "id": "q001",
+    "question": "NCSD-Net面向什么类型的信号，它的主要研究目标是什么？",
+    "expected_chunk_ids": [
+      "b8235a5ee2da"
+    ],
+    "top3": {
+      "Dense": [
+        "b8235a5ee2da",
+        "4314d917e138",
+        "ee3f7252e4cc"
+      ],
+      "BM25": [
+        "b8235a5ee2da",
+        "ebd8a6c39ab6",
+        "fc01644f2804"
+      ],
+      "Hybrid": [
+        "b8235a5ee2da",
+        "fc01644f2804",
+        "9e692983e9ee"
+      ]
+    },
+    "recall_at_3": {
+      "Dense": 1.0,
+      "BM25": 1.0,
+      "Hybrid": 1.0
+    },
+    "first_relevant_rank": {
+      "Dense": 1,
+      "BM25": 1,
+      "Hybrid": 1
+    },
+    "best_methods": [
+      "Dense",
+      "BM25",
+      "Hybrid"
+    ],
+    "observation": "Hybrid在本题Recall@3达到最高或并列最高"
+  },
+  {
+    "id": "q002",
+    "question": "NCSD-Net项目包含哪些神经网络基线、传统方法和实验类型？",
+    "expected_chunk_ids": [
+      "d5a1e70dd704"
+    ],
+    "top3": {
+      "Dense": [
+        "e5a822ea4b22",
+        "b8235a5ee2da",
+        "ee3f7252e4cc"
+      ],
+      "BM25": [
+        "d5a1e70dd704",
+        "b8235a5ee2da",
+        "ee3f7252e4cc"
+      ],
+      "Hybrid": [
+        "b8235a5ee2da",
+        "ee3f7252e4cc",
+        "d5a1e70dd704"
+      ]
+    },
+    "recall_at_3": {
+      "Dense": 0.0,
+      "BM25": 1.0,
+      "Hybrid": 1.0
+    },
+    "first_relevant_rank": {
+      "Dense": null,
+      "BM25": 1,
+      "Hybrid": 3
+    },
+    "best_methods": [
+      "BM25",
+      "Hybrid"
+    ],
+    "observation": "Hybrid在本题Recall@3达到最高或并列最高"
+  },
+  {
+    "id": "q003",
+    "question": "为什么不能宣称NCSD-Net在所有指标和全部场景中全面领先？",
+    "expected_chunk_ids": [
+      "ee3f7252e4cc"
+    ],
+    "top3": {
+      "Dense": [
+        "c06f44351158",
+        "ee3f7252e4cc",
+        "cf73b6f9d2a1"
+      ],
+      "BM25": [
+        "ee3f7252e4cc",
+        "cf73b6f9d2a1",
+        "c06f44351158"
+      ],
+      "Hybrid": [
+        "ee3f7252e4cc",
+        "c06f44351158",
+        "cf73b6f9d2a1"
+      ]
+    },
+    "recall_at_3": {
+      "Dense": 1.0,
+      "BM25": 1.0,
+      "Hybrid": 1.0
+    },
+    "first_relevant_rank": {
+      "Dense": 2,
+      "BM25": 1,
+      "Hybrid": 1
+    },
+    "best_methods": [
+      "Dense",
+      "BM25",
+      "Hybrid"
+    ],
+    "observation": "Hybrid在本题Recall@3达到最高或并列最高"
+  },
+  {
+    "id": "q004",
+    "question": "MSCP默认使用哪些卷积核，它负责提取什么特征？",
+    "expected_chunk_ids": [
+      "4314d917e138"
+    ],
+    "top3": {
+      "Dense": [
+        "4314d917e138",
+        "e5a822ea4b22",
+        "463cb2893c25"
+      ],
+      "BM25": [
+        "4314d917e138",
+        "463cb2893c25",
+        "113a5976be27"
+      ],
+      "Hybrid": [
+        "4314d917e138",
+        "463cb2893c25",
+        "113a5976be27"
+      ]
+    },
+    "recall_at_3": {
+      "Dense": 1.0,
+      "BM25": 1.0,
+      "Hybrid": 1.0
+    },
+    "first_relevant_rank": {
+      "Dense": 1,
+      "BM25": 1,
+      "Hybrid": 1
+    },
+    "best_methods": [
+      "Dense",
+      "BM25",
+      "Hybrid"
+    ],
+    "observation": "Hybrid在本题Recall@3达到最高或并列最高"
+  },
+  {
+    "id": "q005",
+    "question": "CDCSIC和UASG在NCSD-Net中分别起什么作用？",
+    "expected_chunk_ids": [
+      "23537baeaa24"
+    ],
+    "top3": {
+      "Dense": [
+        "4314d917e138",
+        "b8235a5ee2da",
+        "ee3f7252e4cc"
+      ],
+      "BM25": [
+        "23537baeaa24",
+        "ee3f7252e4cc",
+        "4314d917e138"
+      ],
+      "Hybrid": [
+        "4314d917e138",
+        "ee3f7252e4cc",
+        "23537baeaa24"
+      ]
+    },
+    "recall_at_3": {
+      "Dense": 0.0,
+      "BM25": 1.0,
+      "Hybrid": 1.0
+    },
+    "first_relevant_rank": {
+      "Dense": null,
+      "BM25": 1,
+      "Hybrid": 3
+    },
+    "best_methods": [
+      "BM25",
+      "Hybrid"
+    ],
+    "observation": "Hybrid在本题Recall@3达到最高或并列最高"
+  },
+  {
+    "id": "q006",
+    "question": "多窗口FFT参考分支默认使用哪些窗口、hop size和窗函数？",
+    "expected_chunk_ids": [
+      "113a5976be27",
+      "17fd1669da10"
+    ],
+    "top3": {
+      "Dense": [
+        "17fd1669da10",
+        "113a5976be27",
+        "6a7df2bd818f"
+      ],
+      "BM25": [
+        "17fd1669da10",
+        "113a5976be27",
+        "23537baeaa24"
+      ],
+      "Hybrid": [
+        "17fd1669da10",
+        "113a5976be27",
+        "6a7df2bd818f"
+      ]
+    },
+    "recall_at_3": {
+      "Dense": 1.0,
+      "BM25": 1.0,
+      "Hybrid": 1.0
+    },
+    "first_relevant_rank": {
+      "Dense": 1,
+      "BM25": 1,
+      "Hybrid": 1
+    },
+    "best_methods": [
+      "Dense",
+      "BM25",
+      "Hybrid"
+    ],
+    "observation": "Hybrid在本题Recall@3达到最高或并列最高"
+  },
+  {
+    "id": "q007",
+    "question": "NCSD-Net的最终时频输出来自FFTReferenceBranch还是Spectral Head？",
+    "expected_chunk_ids": [
+      "a37e0f68eaee"
+    ],
+    "top3": {
+      "Dense": [
+        "a37e0f68eaee",
+        "465688e82662",
+        "6a7df2bd818f"
+      ],
+      "BM25": [
+        "a37e0f68eaee",
+        "8450921aee77",
+        "465688e82662"
+      ],
+      "Hybrid": [
+        "a37e0f68eaee",
+        "465688e82662",
+        "6a7df2bd818f"
+      ]
+    },
+    "recall_at_3": {
+      "Dense": 1.0,
+      "BM25": 1.0,
+      "Hybrid": 1.0
+    },
+    "first_relevant_rank": {
+      "Dense": 1,
+      "BM25": 1,
+      "Hybrid": 1
+    },
+    "best_methods": [
+      "Dense",
+      "BM25",
+      "Hybrid"
+    ],
+    "observation": "Hybrid在本题Recall@3达到最高或并列最高"
+  },
+  {
+    "id": "q008",
+    "question": "NCSD-Net默认的输入长度、输出频率维、中间频率维和通道规模是多少？",
+    "expected_chunk_ids": [
+      "463cb2893c25"
+    ],
+    "top3": {
+      "Dense": [
+        "9e692983e9ee",
+        "4314d917e138",
+        "36cc1ee8cf07"
+      ],
+      "BM25": [
+        "463cb2893c25",
+        "a37e0f68eaee",
+        "9e692983e9ee"
+      ],
+      "Hybrid": [
+        "9e692983e9ee",
+        "463cb2893c25",
+        "b8235a5ee2da"
+      ]
+    },
+    "recall_at_3": {
+      "Dense": 0.0,
+      "BM25": 1.0,
+      "Hybrid": 1.0
+    },
+    "first_relevant_rank": {
+      "Dense": null,
+      "BM25": 1,
+      "Hybrid": 2
+    },
+    "best_methods": [
+      "BM25",
+      "Hybrid"
+    ],
+    "observation": "Hybrid在本题Recall@3达到最高或并列最高"
+  },
+  {
+    "id": "q009",
+    "question": "NCSD-Net的默认输入张量形状和I、Q通道顺序是什么？",
+    "expected_chunk_ids": [
+      "9e692983e9ee"
+    ],
+    "top3": {
+      "Dense": [
+        "9e692983e9ee",
+        "4314d917e138",
+        "bbeaa1de05e5"
+      ],
+      "BM25": [
+        "9e692983e9ee",
+        "bbeaa1de05e5",
+        "cc296076b21d"
+      ],
+      "Hybrid": [
+        "9e692983e9ee",
+        "bbeaa1de05e5",
+        "b8235a5ee2da"
+      ]
+    },
+    "recall_at_3": {
+      "Dense": 1.0,
+      "BM25": 1.0,
+      "Hybrid": 1.0
+    },
+    "first_relevant_rank": {
+      "Dense": 1,
+      "BM25": 1,
+      "Hybrid": 1
+    },
+    "best_methods": [
+      "Dense",
+      "BM25",
+      "Hybrid"
+    ],
+    "observation": "Hybrid在本题Recall@3达到最高或并列最高"
+  },
+  {
+    "id": "q010",
+    "question": "NCSD-Net默认输出形状是什么，Wrapper还可能返回哪些辅助字段？",
+    "expected_chunk_ids": [
+      "16362dda708d",
+      "bbeaa1de05e5"
+    ],
+    "top3": {
+      "Dense": [
+        "16362dda708d",
+        "9e692983e9ee",
+        "d2f8317d2c26"
+      ],
+      "BM25": [
+        "16362dda708d",
+        "d2f8317d2c26",
+        "6c0bae378797"
+      ],
+      "Hybrid": [
+        "16362dda708d",
+        "d2f8317d2c26",
+        "9e692983e9ee"
+      ]
+    },
+    "recall_at_3": {
+      "Dense": 0.5,
+      "BM25": 0.5,
+      "Hybrid": 0.5
+    },
+    "first_relevant_rank": {
+      "Dense": 1,
+      "BM25": 1,
+      "Hybrid": 1
+    },
+    "best_methods": [
+      "Dense",
+      "BM25",
+      "Hybrid"
+    ],
+    "observation": "Hybrid在本题Recall@3达到最高或并列最高"
+  },
+  {
+    "id": "q011",
+    "question": "NCSD-Net怎样使用复幅值最大值共同归一化I和Q，为什么不能分别归一化？",
+    "expected_chunk_ids": [
+      "cc296076b21d"
+    ],
+    "top3": {
+      "Dense": [
+        "cc296076b21d",
+        "1692e780418c",
+        "9e692983e9ee"
+      ],
+      "BM25": [
+        "1692e780418c",
+        "cc296076b21d",
+        "5e83a07f658e"
+      ],
+      "Hybrid": [
+        "1692e780418c",
+        "cc296076b21d",
+        "5e83a07f658e"
+      ]
+    },
+    "recall_at_3": {
+      "Dense": 1.0,
+      "BM25": 1.0,
+      "Hybrid": 1.0
+    },
+    "first_relevant_rank": {
+      "Dense": 1,
+      "BM25": 2,
+      "Hybrid": 2
+    },
+    "best_methods": [
+      "Dense",
+      "BM25",
+      "Hybrid"
+    ],
+    "observation": "Hybrid在本题Recall@3达到最高或并列最高"
+  },
+  {
+    "id": "q012",
+    "question": "批量在线推理应采用整批归一化还是逐样本归一化，目前是否已经确定？",
+    "expected_chunk_ids": [
+      "2e1210769a47"
+    ],
+    "top3": {
+      "Dense": [
+        "2e1210769a47",
+        "d0811a5bb9e1",
+        "cc296076b21d"
+      ],
+      "BM25": [
+        "d0811a5bb9e1",
+        "2e1210769a47",
+        "1692e780418c"
+      ],
+      "Hybrid": [
+        "2e1210769a47",
+        "d0811a5bb9e1",
+        "1692e780418c"
+      ]
+    },
+    "recall_at_3": {
+      "Dense": 1.0,
+      "BM25": 1.0,
+      "Hybrid": 1.0
+    },
+    "first_relevant_rank": {
+      "Dense": 1,
+      "BM25": 2,
+      "Hybrid": 1
+    },
+    "best_methods": [
+      "Dense",
+      "BM25",
+      "Hybrid"
+    ],
+    "observation": "Hybrid在本题Recall@3达到最高或并列最高"
+  },
+  {
+    "id": "q013",
+    "question": "没有采样率时能否把NCSD-Net输出的频率bin转换成物理Hz？",
+    "expected_chunk_ids": [
+      "2e1210769a47"
+    ],
+    "top3": {
+      "Dense": [
+        "66e30909bbf9",
+        "4314d917e138",
+        "b8235a5ee2da"
+      ],
+      "BM25": [
+        "2e1210769a47",
+        "91c2515c5dac",
+        "5ee5cf672061"
+      ],
+      "Hybrid": [
+        "66e30909bbf9",
+        "5ee5cf672061",
+        "2e1210769a47"
+      ]
+    },
+    "recall_at_3": {
+      "Dense": 0.0,
+      "BM25": 1.0,
+      "Hybrid": 1.0
+    },
+    "first_relevant_rank": {
+      "Dense": null,
+      "BM25": 1,
+      "Hybrid": 3
+    },
+    "best_methods": [
+      "BM25",
+      "Hybrid"
+    ],
+    "observation": "Hybrid在本题Recall@3达到最高或并列最高"
+  },
+  {
+    "id": "q014",
+    "question": "NCSD-Net当前是否默认执行fftshift，为什么不能擅自改变FFT频率排列？",
+    "expected_chunk_ids": [
+      "66e30909bbf9"
+    ],
+    "top3": {
+      "Dense": [
+        "66e30909bbf9",
+        "6a7df2bd818f",
+        "465688e82662"
+      ],
+      "BM25": [
+        "1692e780418c",
+        "66e30909bbf9",
+        "113a5976be27"
+      ],
+      "Hybrid": [
+        "66e30909bbf9",
+        "1692e780418c",
+        "113a5976be27"
+      ]
+    },
+    "recall_at_3": {
+      "Dense": 1.0,
+      "BM25": 1.0,
+      "Hybrid": 1.0
+    },
+    "first_relevant_rank": {
+      "Dense": 1,
+      "BM25": 2,
+      "Hybrid": 1
+    },
+    "best_methods": [
+      "Dense",
+      "BM25",
+      "Hybrid"
+    ],
+    "observation": "Hybrid在本题Recall@3达到最高或并列最高"
+  },
+  {
+    "id": "q015",
+    "question": "多窗口FFT的短窗口和长窗口分别偏向什么分辨率？",
+    "expected_chunk_ids": [
+      "17fd1669da10"
+    ],
+    "top3": {
+      "Dense": [
+        "17fd1669da10",
+        "6a7df2bd818f",
+        "113a5976be27"
+      ],
+      "BM25": [
+        "17fd1669da10",
+        "113a5976be27",
+        "1976e85e3f23"
+      ],
+      "Hybrid": [
+        "17fd1669da10",
+        "113a5976be27",
+        "6a7df2bd818f"
+      ]
+    },
+    "recall_at_3": {
+      "Dense": 1.0,
+      "BM25": 1.0,
+      "Hybrid": 1.0
+    },
+    "first_relevant_rank": {
+      "Dense": 1,
+      "BM25": 1,
+      "Hybrid": 1
+    },
+    "best_methods": [
+      "Dense",
+      "BM25",
+      "Hybrid"
+    ],
+    "observation": "Hybrid在本题Recall@3达到最高或并列最高"
+  },
+  {
+    "id": "q016",
+    "question": "FFT幅度经过什么处理后作为先验，又怎样融合进神经特征？",
+    "expected_chunk_ids": [
+      "6a7df2bd818f"
+    ],
+    "top3": {
+      "Dense": [
+        "6a7df2bd818f",
+        "a37e0f68eaee",
+        "113a5976be27"
+      ],
+      "BM25": [
+        "6a7df2bd818f",
+        "113a5976be27",
+        "a37e0f68eaee"
+      ],
+      "Hybrid": [
+        "6a7df2bd818f",
+        "113a5976be27",
+        "a37e0f68eaee"
+      ]
+    },
+    "recall_at_3": {
+      "Dense": 1.0,
+      "BM25": 1.0,
+      "Hybrid": 1.0
+    },
+    "first_relevant_rank": {
+      "Dense": 1,
+      "BM25": 1,
+      "Hybrid": 1
+    },
+    "best_methods": [
+      "Dense",
+      "BM25",
+      "Hybrid"
+    ],
+    "observation": "Hybrid在本题Recall@3达到最高或并列最高"
+  },
+  {
+    "id": "q017",
+    "question": "FFT删除干预实验中的Peak F1如何变化，这个结果能否外推到冻结主测试集？",
+    "expected_chunk_ids": [
+      "776393442e21"
+    ],
+    "top3": {
+      "Dense": [
+        "776393442e21",
+        "8450921aee77",
+        "401c52160030"
+      ],
+      "BM25": [
+        "82f98b4ce686",
+        "776393442e21",
+        "401c52160030"
+      ],
+      "Hybrid": [
+        "776393442e21",
+        "82f98b4ce686",
+        "401c52160030"
+      ]
+    },
+    "recall_at_3": {
+      "Dense": 1.0,
+      "BM25": 1.0,
+      "Hybrid": 1.0
+    },
+    "first_relevant_rank": {
+      "Dense": 1,
+      "BM25": 2,
+      "Hybrid": 1
+    },
+    "best_methods": [
+      "Dense",
+      "BM25",
+      "Hybrid"
+    ],
+    "observation": "Hybrid在本题Recall@3达到最高或并列最高"
+  },
+  {
+    "id": "q018",
+    "question": "best_primary.pth检查点用于哪些任务，能否由MATLAB应用检查点替代？",
+    "expected_chunk_ids": [
+      "2003ccd9c5a6",
+      "ba143dfbee1e"
+    ],
+    "top3": {
+      "Dense": [
+        "ebd8a6c39ab6",
+        "534195d52c16",
+        "ba143dfbee1e"
+      ],
+      "BM25": [
+        "ebd8a6c39ab6",
+        "38ce6f3b9a93",
+        "ba143dfbee1e"
+      ],
+      "Hybrid": [
+        "ebd8a6c39ab6",
+        "ba143dfbee1e",
+        "534195d52c16"
+      ]
+    },
+    "recall_at_3": {
+      "Dense": 0.5,
+      "BM25": 0.5,
+      "Hybrid": 0.5
+    },
+    "first_relevant_rank": {
+      "Dense": 3,
+      "BM25": 3,
+      "Hybrid": 2
+    },
+    "best_methods": [
+      "Dense",
+      "BM25",
+      "Hybrid"
+    ],
+    "observation": "Hybrid在本题Recall@3达到最高或并列最高"
+  },
+  {
+    "id": "q019",
+    "question": "严格峰值检测器best_peak_detector.pth能否脱离冻结基础模型单独运行？",
+    "expected_chunk_ids": [
+      "307a4e031488"
+    ],
+    "top3": {
+      "Dense": [
+        "307a4e031488",
+        "418582e0037a",
+        "ba143dfbee1e"
+      ],
+      "BM25": [
+        "307a4e031488",
+        "38ce6f3b9a93",
+        "5e83a07f658e"
+      ],
+      "Hybrid": [
+        "307a4e031488",
+        "38ce6f3b9a93",
+        "ba143dfbee1e"
+      ]
+    },
+    "recall_at_3": {
+      "Dense": 1.0,
+      "BM25": 1.0,
+      "Hybrid": 1.0
+    },
+    "first_relevant_rank": {
+      "Dense": 1,
+      "BM25": 1,
+      "Hybrid": 1
+    },
+    "best_methods": [
+      "Dense",
+      "BM25",
+      "Hybrid"
+    ],
+    "observation": "Hybrid在本题Recall@3达到最高或并列最高"
+  },
+  {
+    "id": "q020",
+    "question": "best_peak_recall.pth的用途是什么，为什么不能用它宣称冻结测试主结果？",
+    "expected_chunk_ids": [
+      "ebd8a6c39ab6"
+    ],
+    "top3": {
+      "Dense": [
+        "ebd8a6c39ab6",
+        "418582e0037a",
+        "307a4e031488"
+      ],
+      "BM25": [
+        "2003ccd9c5a6",
+        "5e83a07f658e",
+        "ebd8a6c39ab6"
+      ],
+      "Hybrid": [
+        "ebd8a6c39ab6",
+        "2003ccd9c5a6",
+        "307a4e031488"
+      ]
+    },
+    "recall_at_3": {
+      "Dense": 1.0,
+      "BM25": 1.0,
+      "Hybrid": 1.0
+    },
+    "first_relevant_rank": {
+      "Dense": 1,
+      "BM25": 3,
+      "Hybrid": 1
+    },
+    "best_methods": [
+      "Dense",
+      "BM25",
+      "Hybrid"
+    ],
+    "observation": "Hybrid在本题Recall@3达到最高或并列最高"
+  },
+  {
+    "id": "q021",
+    "question": "hit rate、GFSC@K和Peak F1在定义与评价目的上有什么区别？",
+    "expected_chunk_ids": [
+      "34e5d8b383c3",
+      "fc01644f2804"
+    ],
+    "top3": {
+      "Dense": [
+        "4d3397db28af",
+        "fc01644f2804",
+        "5ee5cf672061"
+      ],
+      "BM25": [
+        "fc01644f2804",
+        "4d3397db28af",
+        "91c2515c5dac"
+      ],
+      "Hybrid": [
+        "4d3397db28af",
+        "fc01644f2804",
+        "5ee5cf672061"
+      ]
+    },
+    "recall_at_3": {
+      "Dense": 0.5,
+      "BM25": 0.5,
+      "Hybrid": 0.5
+    },
+    "first_relevant_rank": {
+      "Dense": 2,
+      "BM25": 1,
+      "Hybrid": 2
+    },
+    "best_methods": [
+      "Dense",
+      "BM25",
+      "Hybrid"
+    ],
+    "observation": "Hybrid在本题Recall@3达到最高或并列最高"
+  },
+  {
+    "id": "q022",
+    "question": "FROZEN_STRICT_MAIN_V1严格峰值协议使用了哪些NMS、匹配、容差和候选数规则？",
+    "expected_chunk_ids": [
+      "a017bb48e8ea"
+    ],
+    "top3": {
+      "Dense": [
+        "a017bb48e8ea",
+        "89d29fe4e70c",
+        "418582e0037a"
+      ],
+      "BM25": [
+        "a017bb48e8ea",
+        "34e5d8b383c3",
+        "a5e647323dcf"
+      ],
+      "Hybrid": [
+        "a017bb48e8ea",
+        "a5e647323dcf",
+        "c06f44351158"
+      ]
+    },
+    "recall_at_3": {
+      "Dense": 1.0,
+      "BM25": 1.0,
+      "Hybrid": 1.0
+    },
+    "first_relevant_rank": {
+      "Dense": 1,
+      "BM25": 1,
+      "Hybrid": 1
+    },
+    "best_methods": [
+      "Dense",
+      "BM25",
+      "Hybrid"
+    ],
+    "observation": "Hybrid在本题Recall@3达到最高或并列最高"
+  },
+  {
+    "id": "q023",
+    "question": "为什么GFSC@K、MATLAB固定工作点和same-FP Recall不能直接混在一起比较？",
+    "expected_chunk_ids": [
+      "897dc068b061",
+      "f6c56d99bbe9"
+    ],
+    "top3": {
+      "Dense": [
+        "897dc068b061",
+        "f6c56d99bbe9",
+        "4d3397db28af"
+      ],
+      "BM25": [
+        "897dc068b061",
+        "3cef12842c53",
+        "69559213014e"
+      ],
+      "Hybrid": [
+        "897dc068b061",
+        "f6c56d99bbe9",
+        "69559213014e"
+      ]
+    },
+    "recall_at_3": {
+      "Dense": 1.0,
+      "BM25": 0.5,
+      "Hybrid": 1.0
+    },
+    "first_relevant_rank": {
+      "Dense": 1,
+      "BM25": 1,
+      "Hybrid": 1
+    },
+    "best_methods": [
+      "Dense",
+      "Hybrid"
+    ],
+    "observation": "Hybrid在本题Recall@3达到最高或并列最高"
+  },
+  {
+    "id": "q024",
+    "question": "在FROZEN_SUPPORT_V1中NCSD-Net、TFA-Net和HCTFR-Net的Overall hit rate分别是多少？",
+    "expected_chunk_ids": [
+      "4d4967bcfe09"
+    ],
+    "top3": {
+      "Dense": [
+        "4d4967bcfe09",
+        "89d29fe4e70c",
+        "c06f44351158"
+      ],
+      "BM25": [
+        "4d4967bcfe09",
+        "89d29fe4e70c",
+        "c06f44351158"
+      ],
+      "Hybrid": [
+        "4d4967bcfe09",
+        "89d29fe4e70c",
+        "c06f44351158"
+      ]
+    },
+    "recall_at_3": {
+      "Dense": 1.0,
+      "BM25": 1.0,
+      "Hybrid": 1.0
+    },
+    "first_relevant_rank": {
+      "Dense": 1,
+      "BM25": 1,
+      "Hybrid": 1
+    },
+    "best_methods": [
+      "Dense",
+      "BM25",
+      "Hybrid"
+    ],
+    "observation": "Hybrid在本题Recall@3达到最高或并列最高"
+  },
+  {
+    "id": "q025",
+    "question": "在严格峰值检测Overall分组中三种模型的Peak F1和NCSD-Net的FP/frame是多少？",
+    "expected_chunk_ids": [
+      "89d29fe4e70c"
+    ],
+    "top3": {
+      "Dense": [
+        "89d29fe4e70c",
+        "307a4e031488",
+        "d2f8317d2c26"
+      ],
+      "BM25": [
+        "89d29fe4e70c",
+        "d711ad473f66",
+        "a5e647323dcf"
+      ],
+      "Hybrid": [
+        "89d29fe4e70c",
+        "d711ad473f66",
+        "c06f44351158"
+      ]
+    },
+    "recall_at_3": {
+      "Dense": 1.0,
+      "BM25": 1.0,
+      "Hybrid": 1.0
+    },
+    "first_relevant_rank": {
+      "Dense": 1,
+      "BM25": 1,
+      "Hybrid": 1
+    },
+    "best_methods": [
+      "Dense",
+      "BM25",
+      "Hybrid"
+    ],
+    "observation": "Hybrid在本题Recall@3达到最高或并列最高"
+  },
+  {
+    "id": "q026",
+    "question": "固定阈值0的低信噪比严格检测中，为什么NCSD-Net不能被描述为优于TFA-Net和HCTFR-Net？",
+    "expected_chunk_ids": [
+      "d711ad473f66",
+      "fca27382c706"
+    ],
+    "top3": {
+      "Dense": [
+        "89d29fe4e70c",
+        "d711ad473f66",
+        "81ec6b9a17d0"
+      ],
+      "BM25": [
+        "d711ad473f66",
+        "89d29fe4e70c",
+        "81ec6b9a17d0"
+      ],
+      "Hybrid": [
+        "89d29fe4e70c",
+        "d711ad473f66",
+        "81ec6b9a17d0"
+      ]
+    },
+    "recall_at_3": {
+      "Dense": 0.5,
+      "BM25": 0.5,
+      "Hybrid": 0.5
+    },
+    "first_relevant_rank": {
+      "Dense": 2,
+      "BM25": 1,
+      "Hybrid": 2
+    },
+    "best_methods": [
+      "Dense",
+      "BM25",
+      "Hybrid"
+    ],
+    "observation": "Hybrid在本题Recall@3达到最高或并列最高"
+  },
+  {
+    "id": "q027",
+    "question": "NCSD-Net在Table S5中的Overall GFSC@K是多少，这一数值能否称为Peak F1？",
+    "expected_chunk_ids": [
+      "9b4cc0278074"
+    ],
+    "top3": {
+      "Dense": [
+        "9b4cc0278074",
+        "c06f44351158",
+        "fc01644f2804"
+      ],
+      "BM25": [
+        "9b4cc0278074",
+        "4d3397db28af",
+        "f6c56d99bbe9"
+      ],
+      "Hybrid": [
+        "9b4cc0278074",
+        "c06f44351158",
+        "fc01644f2804"
+      ]
+    },
+    "recall_at_3": {
+      "Dense": 1.0,
+      "BM25": 1.0,
+      "Hybrid": 1.0
+    },
+    "first_relevant_rank": {
+      "Dense": 1,
+      "BM25": 1,
+      "Hybrid": 1
+    },
+    "best_methods": [
+      "Dense",
+      "BM25",
+      "Hybrid"
+    ],
+    "observation": "Hybrid在本题Recall@3达到最高或并列最高"
+  },
+  {
+    "id": "q028",
+    "question": "NCSD-Net在六个MATLAB可控信号场景中取得了怎样的排名，是否所有场景都领先？",
+    "expected_chunk_ids": [
+      "fff95f27e2b0"
+    ],
+    "top3": {
+      "Dense": [
+        "fff95f27e2b0",
+        "e5a822ea4b22",
+        "38ce6f3b9a93"
+      ],
+      "BM25": [
+        "fff95f27e2b0",
+        "ee3f7252e4cc",
+        "e5a822ea4b22"
+      ],
+      "Hybrid": [
+        "fff95f27e2b0",
+        "e5a822ea4b22",
+        "ee3f7252e4cc"
+      ]
+    },
+    "recall_at_3": {
+      "Dense": 1.0,
+      "BM25": 1.0,
+      "Hybrid": 1.0
+    },
+    "first_relevant_rank": {
+      "Dense": 1,
+      "BM25": 1,
+      "Hybrid": 1
+    },
+    "best_methods": [
+      "Dense",
+      "BM25",
+      "Hybrid"
+    ],
+    "observation": "Hybrid在本题Recall@3达到最高或并列最高"
+  },
+  {
+    "id": "q029",
+    "question": "为什么已知真实分量数K的严格峰值协议不能直接描述成完全盲检测？",
+    "expected_chunk_ids": [
+      "d0811a5bb9e1"
+    ],
+    "top3": {
+      "Dense": [
+        "d0811a5bb9e1",
+        "a5e647323dcf",
+        "34e5d8b383c3"
+      ],
+      "BM25": [
+        "d0811a5bb9e1",
+        "a5e647323dcf",
+        "34e5d8b383c3"
+      ],
+      "Hybrid": [
+        "d0811a5bb9e1",
+        "a5e647323dcf",
+        "34e5d8b383c3"
+      ]
+    },
+    "recall_at_3": {
+      "Dense": 1.0,
+      "BM25": 1.0,
+      "Hybrid": 1.0
+    },
+    "first_relevant_rank": {
+      "Dense": 1,
+      "BM25": 1,
+      "Hybrid": 1
+    },
+    "best_methods": [
+      "Dense",
+      "BM25",
+      "Hybrid"
+    ],
+    "observation": "Hybrid在本题Recall@3达到最高或并列最高"
+  },
+  {
+    "id": "q030",
+    "question": "当知识库找不到可靠数值或用户提出跨协议比较时，SignalLab Agent应该怎样回答？",
+    "expected_chunk_ids": [
+      "100f93fb7d47",
+      "91c2515c5dac"
+    ],
+    "top3": {
+      "Dense": [
+        "100f93fb7d47",
+        "d2f8317d2c26",
+        "91c2515c5dac"
+      ],
+      "BM25": [
+        "d2f8317d2c26",
+        "100f93fb7d47",
+        "91c2515c5dac"
+      ],
+      "Hybrid": [
+        "100f93fb7d47",
+        "d2f8317d2c26",
+        "91c2515c5dac"
+      ]
+    },
+    "recall_at_3": {
+      "Dense": 1.0,
+      "BM25": 1.0,
+      "Hybrid": 1.0
+    },
+    "first_relevant_rank": {
+      "Dense": 1,
+      "BM25": 2,
+      "Hybrid": 1
+    },
+    "best_methods": [
+      "Dense",
+      "BM25",
+      "Hybrid"
+    ],
+    "observation": "Hybrid在本题Recall@3达到最高或并列最高"
+  }
+]

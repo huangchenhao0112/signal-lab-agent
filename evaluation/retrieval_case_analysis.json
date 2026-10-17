@@ -1,0 +1,597 @@
+[
+  {
+    "id": "q001",
+    "question": "NCSD-Net面向什么类型的信号，它的主要研究目标是什么？",
+    "expected_chunk_ids": [
+      "b8235a5ee2da"
+    ],
+    "dense_top3": [
+      "b8235a5ee2da",
+      "4314d917e138",
+      "ee3f7252e4cc"
+    ],
+    "bm25_top3": [
+      "b8235a5ee2da",
+      "ebd8a6c39ab6",
+      "fc01644f2804"
+    ],
+    "dense_recall_at_3": 1.0,
+    "bm25_recall_at_3": 1.0,
+    "better_method": "Recall@3相同，但排序不同",
+    "analysis": "需要结合两个检索结果的文本内容，分析是关键词匹配问题还是语义匹配问题"
+  },
+  {
+    "id": "q002",
+    "question": "NCSD-Net项目包含哪些神经网络基线、传统方法和实验类型？",
+    "expected_chunk_ids": [
+      "d5a1e70dd704"
+    ],
+    "dense_top3": [
+      "e5a822ea4b22",
+      "b8235a5ee2da",
+      "ee3f7252e4cc"
+    ],
+    "bm25_top3": [
+      "d5a1e70dd704",
+      "b8235a5ee2da",
+      "ee3f7252e4cc"
+    ],
+    "dense_recall_at_3": 0.0,
+    "bm25_recall_at_3": 1.0,
+    "better_method": "BM25",
+    "analysis": "需要结合两个检索结果的文本内容，分析是关键词匹配问题还是语义匹配问题"
+  },
+  {
+    "id": "q003",
+    "question": "为什么不能宣称NCSD-Net在所有指标和全部场景中全面领先？",
+    "expected_chunk_ids": [
+      "ee3f7252e4cc"
+    ],
+    "dense_top3": [
+      "c06f44351158",
+      "ee3f7252e4cc",
+      "cf73b6f9d2a1"
+    ],
+    "bm25_top3": [
+      "ee3f7252e4cc",
+      "cf73b6f9d2a1",
+      "c06f44351158"
+    ],
+    "dense_recall_at_3": 1.0,
+    "bm25_recall_at_3": 1.0,
+    "better_method": "Recall@3相同，但排序不同",
+    "analysis": "需要结合两个检索结果的文本内容，分析是关键词匹配问题还是语义匹配问题"
+  },
+  {
+    "id": "q004",
+    "question": "MSCP默认使用哪些卷积核，它负责提取什么特征？",
+    "expected_chunk_ids": [
+      "4314d917e138"
+    ],
+    "dense_top3": [
+      "4314d917e138",
+      "e5a822ea4b22",
+      "463cb2893c25"
+    ],
+    "bm25_top3": [
+      "4314d917e138",
+      "463cb2893c25",
+      "113a5976be27"
+    ],
+    "dense_recall_at_3": 1.0,
+    "bm25_recall_at_3": 1.0,
+    "better_method": "Recall@3相同，但排序不同",
+    "analysis": "需要结合两个检索结果的文本内容，分析是关键词匹配问题还是语义匹配问题"
+  },
+  {
+    "id": "q005",
+    "question": "CDCSIC和UASG在NCSD-Net中分别起什么作用？",
+    "expected_chunk_ids": [
+      "23537baeaa24"
+    ],
+    "dense_top3": [
+      "4314d917e138",
+      "b8235a5ee2da",
+      "ee3f7252e4cc"
+    ],
+    "bm25_top3": [
+      "23537baeaa24",
+      "ee3f7252e4cc",
+      "4314d917e138"
+    ],
+    "dense_recall_at_3": 0.0,
+    "bm25_recall_at_3": 1.0,
+    "better_method": "BM25",
+    "analysis": "需要结合两个检索结果的文本内容，分析是关键词匹配问题还是语义匹配问题"
+  },
+  {
+    "id": "q006",
+    "question": "多窗口FFT参考分支默认使用哪些窗口、hop size和窗函数？",
+    "expected_chunk_ids": [
+      "113a5976be27",
+      "17fd1669da10"
+    ],
+    "dense_top3": [
+      "17fd1669da10",
+      "113a5976be27",
+      "6a7df2bd818f"
+    ],
+    "bm25_top3": [
+      "17fd1669da10",
+      "113a5976be27",
+      "23537baeaa24"
+    ],
+    "dense_recall_at_3": 1.0,
+    "bm25_recall_at_3": 1.0,
+    "better_method": "Recall@3相同，但排序不同",
+    "analysis": "需要结合两个检索结果的文本内容，分析是关键词匹配问题还是语义匹配问题"
+  },
+  {
+    "id": "q007",
+    "question": "NCSD-Net的最终时频输出来自FFTReferenceBranch还是Spectral Head？",
+    "expected_chunk_ids": [
+      "a37e0f68eaee"
+    ],
+    "dense_top3": [
+      "a37e0f68eaee",
+      "465688e82662",
+      "6a7df2bd818f"
+    ],
+    "bm25_top3": [
+      "a37e0f68eaee",
+      "8450921aee77",
+      "465688e82662"
+    ],
+    "dense_recall_at_3": 1.0,
+    "bm25_recall_at_3": 1.0,
+    "better_method": "Recall@3相同，但排序不同",
+    "analysis": "需要结合两个检索结果的文本内容，分析是关键词匹配问题还是语义匹配问题"
+  },
+  {
+    "id": "q008",
+    "question": "NCSD-Net默认的输入长度、输出频率维、中间频率维和通道规模是多少？",
+    "expected_chunk_ids": [
+      "463cb2893c25"
+    ],
+    "dense_top3": [
+      "9e692983e9ee",
+      "4314d917e138",
+      "36cc1ee8cf07"
+    ],
+    "bm25_top3": [
+      "463cb2893c25",
+      "a37e0f68eaee",
+      "9e692983e9ee"
+    ],
+    "dense_recall_at_3": 0.0,
+    "bm25_recall_at_3": 1.0,
+    "better_method": "BM25",
+    "analysis": "需要结合两个检索结果的文本内容，分析是关键词匹配问题还是语义匹配问题"
+  },
+  {
+    "id": "q009",
+    "question": "NCSD-Net的默认输入张量形状和I、Q通道顺序是什么？",
+    "expected_chunk_ids": [
+      "9e692983e9ee"
+    ],
+    "dense_top3": [
+      "9e692983e9ee",
+      "4314d917e138",
+      "bbeaa1de05e5"
+    ],
+    "bm25_top3": [
+      "9e692983e9ee",
+      "bbeaa1de05e5",
+      "cc296076b21d"
+    ],
+    "dense_recall_at_3": 1.0,
+    "bm25_recall_at_3": 1.0,
+    "better_method": "Recall@3相同，但排序不同",
+    "analysis": "需要结合两个检索结果的文本内容，分析是关键词匹配问题还是语义匹配问题"
+  },
+  {
+    "id": "q010",
+    "question": "NCSD-Net默认输出形状是什么，Wrapper还可能返回哪些辅助字段？",
+    "expected_chunk_ids": [
+      "16362dda708d",
+      "bbeaa1de05e5"
+    ],
+    "dense_top3": [
+      "16362dda708d",
+      "9e692983e9ee",
+      "d2f8317d2c26"
+    ],
+    "bm25_top3": [
+      "16362dda708d",
+      "d2f8317d2c26",
+      "6c0bae378797"
+    ],
+    "dense_recall_at_3": 0.5,
+    "bm25_recall_at_3": 0.5,
+    "better_method": "Recall@3相同，但排序不同",
+    "analysis": "需要结合两个检索结果的文本内容，分析是关键词匹配问题还是语义匹配问题"
+  },
+  {
+    "id": "q011",
+    "question": "NCSD-Net怎样使用复幅值最大值共同归一化I和Q，为什么不能分别归一化？",
+    "expected_chunk_ids": [
+      "cc296076b21d"
+    ],
+    "dense_top3": [
+      "cc296076b21d",
+      "1692e780418c",
+      "9e692983e9ee"
+    ],
+    "bm25_top3": [
+      "1692e780418c",
+      "cc296076b21d",
+      "5e83a07f658e"
+    ],
+    "dense_recall_at_3": 1.0,
+    "bm25_recall_at_3": 1.0,
+    "better_method": "Recall@3相同，但排序不同",
+    "analysis": "需要结合两个检索结果的文本内容，分析是关键词匹配问题还是语义匹配问题"
+  },
+  {
+    "id": "q012",
+    "question": "批量在线推理应采用整批归一化还是逐样本归一化，目前是否已经确定？",
+    "expected_chunk_ids": [
+      "2e1210769a47"
+    ],
+    "dense_top3": [
+      "2e1210769a47",
+      "d0811a5bb9e1",
+      "cc296076b21d"
+    ],
+    "bm25_top3": [
+      "d0811a5bb9e1",
+      "2e1210769a47",
+      "1692e780418c"
+    ],
+    "dense_recall_at_3": 1.0,
+    "bm25_recall_at_3": 1.0,
+    "better_method": "Recall@3相同，但排序不同",
+    "analysis": "需要结合两个检索结果的文本内容，分析是关键词匹配问题还是语义匹配问题"
+  },
+  {
+    "id": "q013",
+    "question": "没有采样率时能否把NCSD-Net输出的频率bin转换成物理Hz？",
+    "expected_chunk_ids": [
+      "2e1210769a47"
+    ],
+    "dense_top3": [
+      "66e30909bbf9",
+      "4314d917e138",
+      "b8235a5ee2da"
+    ],
+    "bm25_top3": [
+      "2e1210769a47",
+      "91c2515c5dac",
+      "5ee5cf672061"
+    ],
+    "dense_recall_at_3": 0.0,
+    "bm25_recall_at_3": 1.0,
+    "better_method": "BM25",
+    "analysis": "需要结合两个检索结果的文本内容，分析是关键词匹配问题还是语义匹配问题"
+  },
+  {
+    "id": "q014",
+    "question": "NCSD-Net当前是否默认执行fftshift，为什么不能擅自改变FFT频率排列？",
+    "expected_chunk_ids": [
+      "66e30909bbf9"
+    ],
+    "dense_top3": [
+      "66e30909bbf9",
+      "6a7df2bd818f",
+      "465688e82662"
+    ],
+    "bm25_top3": [
+      "1692e780418c",
+      "66e30909bbf9",
+      "113a5976be27"
+    ],
+    "dense_recall_at_3": 1.0,
+    "bm25_recall_at_3": 1.0,
+    "better_method": "Recall@3相同，但排序不同",
+    "analysis": "需要结合两个检索结果的文本内容，分析是关键词匹配问题还是语义匹配问题"
+  },
+  {
+    "id": "q015",
+    "question": "多窗口FFT的短窗口和长窗口分别偏向什么分辨率？",
+    "expected_chunk_ids": [
+      "17fd1669da10"
+    ],
+    "dense_top3": [
+      "17fd1669da10",
+      "6a7df2bd818f",
+      "113a5976be27"
+    ],
+    "bm25_top3": [
+      "17fd1669da10",
+      "113a5976be27",
+      "1976e85e3f23"
+    ],
+    "dense_recall_at_3": 1.0,
+    "bm25_recall_at_3": 1.0,
+    "better_method": "Recall@3相同，但排序不同",
+    "analysis": "需要结合两个检索结果的文本内容，分析是关键词匹配问题还是语义匹配问题"
+  },
+  {
+    "id": "q016",
+    "question": "FFT幅度经过什么处理后作为先验，又怎样融合进神经特征？",
+    "expected_chunk_ids": [
+      "6a7df2bd818f"
+    ],
+    "dense_top3": [
+      "6a7df2bd818f",
+      "a37e0f68eaee",
+      "113a5976be27"
+    ],
+    "bm25_top3": [
+      "6a7df2bd818f",
+      "113a5976be27",
+      "a37e0f68eaee"
+    ],
+    "dense_recall_at_3": 1.0,
+    "bm25_recall_at_3": 1.0,
+    "better_method": "Recall@3相同，但排序不同",
+    "analysis": "需要结合两个检索结果的文本内容，分析是关键词匹配问题还是语义匹配问题"
+  },
+  {
+    "id": "q017",
+    "question": "FFT删除干预实验中的Peak F1如何变化，这个结果能否外推到冻结主测试集？",
+    "expected_chunk_ids": [
+      "776393442e21"
+    ],
+    "dense_top3": [
+      "776393442e21",
+      "8450921aee77",
+      "401c52160030"
+    ],
+    "bm25_top3": [
+      "82f98b4ce686",
+      "776393442e21",
+      "401c52160030"
+    ],
+    "dense_recall_at_3": 1.0,
+    "bm25_recall_at_3": 1.0,
+    "better_method": "Recall@3相同，但排序不同",
+    "analysis": "需要结合两个检索结果的文本内容，分析是关键词匹配问题还是语义匹配问题"
+  },
+  {
+    "id": "q018",
+    "question": "best_primary.pth检查点用于哪些任务，能否由MATLAB应用检查点替代？",
+    "expected_chunk_ids": [
+      "2003ccd9c5a6",
+      "ba143dfbee1e"
+    ],
+    "dense_top3": [
+      "ebd8a6c39ab6",
+      "534195d52c16",
+      "ba143dfbee1e"
+    ],
+    "bm25_top3": [
+      "ebd8a6c39ab6",
+      "38ce6f3b9a93",
+      "ba143dfbee1e"
+    ],
+    "dense_recall_at_3": 0.5,
+    "bm25_recall_at_3": 0.5,
+    "better_method": "Recall@3相同，但排序不同",
+    "analysis": "需要结合两个检索结果的文本内容，分析是关键词匹配问题还是语义匹配问题"
+  },
+  {
+    "id": "q019",
+    "question": "严格峰值检测器best_peak_detector.pth能否脱离冻结基础模型单独运行？",
+    "expected_chunk_ids": [
+      "307a4e031488"
+    ],
+    "dense_top3": [
+      "307a4e031488",
+      "418582e0037a",
+      "ba143dfbee1e"
+    ],
+    "bm25_top3": [
+      "307a4e031488",
+      "38ce6f3b9a93",
+      "5e83a07f658e"
+    ],
+    "dense_recall_at_3": 1.0,
+    "bm25_recall_at_3": 1.0,
+    "better_method": "Recall@3相同，但排序不同",
+    "analysis": "需要结合两个检索结果的文本内容，分析是关键词匹配问题还是语义匹配问题"
+  },
+  {
+    "id": "q020",
+    "question": "best_peak_recall.pth的用途是什么，为什么不能用它宣称冻结测试主结果？",
+    "expected_chunk_ids": [
+      "ebd8a6c39ab6"
+    ],
+    "dense_top3": [
+      "ebd8a6c39ab6",
+      "418582e0037a",
+      "307a4e031488"
+    ],
+    "bm25_top3": [
+      "2003ccd9c5a6",
+      "5e83a07f658e",
+      "ebd8a6c39ab6"
+    ],
+    "dense_recall_at_3": 1.0,
+    "bm25_recall_at_3": 1.0,
+    "better_method": "Recall@3相同，但排序不同",
+    "analysis": "需要结合两个检索结果的文本内容，分析是关键词匹配问题还是语义匹配问题"
+  },
+  {
+    "id": "q021",
+    "question": "hit rate、GFSC@K和Peak F1在定义与评价目的上有什么区别？",
+    "expected_chunk_ids": [
+      "34e5d8b383c3",
+      "fc01644f2804"
+    ],
+    "dense_top3": [
+      "4d3397db28af",
+      "fc01644f2804",
+      "5ee5cf672061"
+    ],
+    "bm25_top3": [
+      "fc01644f2804",
+      "4d3397db28af",
+      "91c2515c5dac"
+    ],
+    "dense_recall_at_3": 0.5,
+    "bm25_recall_at_3": 0.5,
+    "better_method": "Recall@3相同，但排序不同",
+    "analysis": "需要结合两个检索结果的文本内容，分析是关键词匹配问题还是语义匹配问题"
+  },
+  {
+    "id": "q022",
+    "question": "FROZEN_STRICT_MAIN_V1严格峰值协议使用了哪些NMS、匹配、容差和候选数规则？",
+    "expected_chunk_ids": [
+      "a017bb48e8ea"
+    ],
+    "dense_top3": [
+      "a017bb48e8ea",
+      "89d29fe4e70c",
+      "418582e0037a"
+    ],
+    "bm25_top3": [
+      "a017bb48e8ea",
+      "34e5d8b383c3",
+      "a5e647323dcf"
+    ],
+    "dense_recall_at_3": 1.0,
+    "bm25_recall_at_3": 1.0,
+    "better_method": "Recall@3相同，但排序不同",
+    "analysis": "需要结合两个检索结果的文本内容，分析是关键词匹配问题还是语义匹配问题"
+  },
+  {
+    "id": "q023",
+    "question": "为什么GFSC@K、MATLAB固定工作点和same-FP Recall不能直接混在一起比较？",
+    "expected_chunk_ids": [
+      "897dc068b061",
+      "f6c56d99bbe9"
+    ],
+    "dense_top3": [
+      "897dc068b061",
+      "f6c56d99bbe9",
+      "4d3397db28af"
+    ],
+    "bm25_top3": [
+      "897dc068b061",
+      "3cef12842c53",
+      "69559213014e"
+    ],
+    "dense_recall_at_3": 1.0,
+    "bm25_recall_at_3": 0.5,
+    "better_method": "Dense",
+    "analysis": "需要结合两个检索结果的文本内容，分析是关键词匹配问题还是语义匹配问题"
+  },
+  {
+    "id": "q025",
+    "question": "在严格峰值检测Overall分组中三种模型的Peak F1和NCSD-Net的FP/frame是多少？",
+    "expected_chunk_ids": [
+      "89d29fe4e70c"
+    ],
+    "dense_top3": [
+      "89d29fe4e70c",
+      "307a4e031488",
+      "d2f8317d2c26"
+    ],
+    "bm25_top3": [
+      "89d29fe4e70c",
+      "d711ad473f66",
+      "a5e647323dcf"
+    ],
+    "dense_recall_at_3": 1.0,
+    "bm25_recall_at_3": 1.0,
+    "better_method": "Recall@3相同，但排序不同",
+    "analysis": "需要结合两个检索结果的文本内容，分析是关键词匹配问题还是语义匹配问题"
+  },
+  {
+    "id": "q026",
+    "question": "固定阈值0的低信噪比严格检测中，为什么NCSD-Net不能被描述为优于TFA-Net和HCTFR-Net？",
+    "expected_chunk_ids": [
+      "d711ad473f66",
+      "fca27382c706"
+    ],
+    "dense_top3": [
+      "89d29fe4e70c",
+      "d711ad473f66",
+      "81ec6b9a17d0"
+    ],
+    "bm25_top3": [
+      "d711ad473f66",
+      "89d29fe4e70c",
+      "81ec6b9a17d0"
+    ],
+    "dense_recall_at_3": 0.5,
+    "bm25_recall_at_3": 0.5,
+    "better_method": "Recall@3相同，但排序不同",
+    "analysis": "需要结合两个检索结果的文本内容，分析是关键词匹配问题还是语义匹配问题"
+  },
+  {
+    "id": "q027",
+    "question": "NCSD-Net在Table S5中的Overall GFSC@K是多少，这一数值能否称为Peak F1？",
+    "expected_chunk_ids": [
+      "9b4cc0278074"
+    ],
+    "dense_top3": [
+      "9b4cc0278074",
+      "c06f44351158",
+      "fc01644f2804"
+    ],
+    "bm25_top3": [
+      "9b4cc0278074",
+      "4d3397db28af",
+      "f6c56d99bbe9"
+    ],
+    "dense_recall_at_3": 1.0,
+    "bm25_recall_at_3": 1.0,
+    "better_method": "Recall@3相同，但排序不同",
+    "analysis": "需要结合两个检索结果的文本内容，分析是关键词匹配问题还是语义匹配问题"
+  },
+  {
+    "id": "q028",
+    "question": "NCSD-Net在六个MATLAB可控信号场景中取得了怎样的排名，是否所有场景都领先？",
+    "expected_chunk_ids": [
+      "fff95f27e2b0"
+    ],
+    "dense_top3": [
+      "fff95f27e2b0",
+      "e5a822ea4b22",
+      "38ce6f3b9a93"
+    ],
+    "bm25_top3": [
+      "fff95f27e2b0",
+      "ee3f7252e4cc",
+      "e5a822ea4b22"
+    ],
+    "dense_recall_at_3": 1.0,
+    "bm25_recall_at_3": 1.0,
+    "better_method": "Recall@3相同，但排序不同",
+    "analysis": "需要结合两个检索结果的文本内容，分析是关键词匹配问题还是语义匹配问题"
+  },
+  {
+    "id": "q030",
+    "question": "当知识库找不到可靠数值或用户提出跨协议比较时，SignalLab Agent应该怎样回答？",
+    "expected_chunk_ids": [
+      "100f93fb7d47",
+      "91c2515c5dac"
+    ],
+    "dense_top3": [
+      "100f93fb7d47",
+      "d2f8317d2c26",
+      "91c2515c5dac"
+    ],
+    "bm25_top3": [
+      "d2f8317d2c26",
+      "100f93fb7d47",
+      "91c2515c5dac"
+    ],
+    "dense_recall_at_3": 1.0,
+    "bm25_recall_at_3": 1.0,
+    "better_method": "Recall@3相同，但排序不同",
+    "analysis": "需要结合两个检索结果的文本内容，分析是关键词匹配问题还是语义匹配问题"
+  }
+]

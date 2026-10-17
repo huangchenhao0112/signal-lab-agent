@@ -1,0 +1,219 @@
+[
+  {
+    "id": "q001",
+    "question": "NCSD-Net面向什么类型的信号，它的主要研究目标是什么？",
+    "expected_chunk_ids": [
+      "b8235a5ee2da"
+    ]
+  },
+  {
+    "id": "q002",
+    "question": "NCSD-Net项目包含哪些神经网络基线、传统方法和实验类型？",
+    "expected_chunk_ids": [
+      "d5a1e70dd704"
+    ]
+  },
+  {
+    "id": "q003",
+    "question": "为什么不能宣称NCSD-Net在所有指标和全部场景中全面领先？",
+    "expected_chunk_ids": [
+      "ee3f7252e4cc"
+    ]
+  },
+  {
+    "id": "q004",
+    "question": "MSCP默认使用哪些卷积核，它负责提取什么特征？",
+    "expected_chunk_ids": [
+      "4314d917e138"
+    ]
+  },
+  {
+    "id": "q005",
+    "question": "CDCSIC和UASG在NCSD-Net中分别起什么作用？",
+    "expected_chunk_ids": [
+      "23537baeaa24"
+    ]
+  },
+  {
+    "id": "q006",
+    "question": "多窗口FFT参考分支默认使用哪些窗口、hop size和窗函数？",
+    "expected_chunk_ids": [
+      "113a5976be27",
+      "17fd1669da10"
+    ]
+  },
+  {
+    "id": "q007",
+    "question": "NCSD-Net的最终时频输出来自FFTReferenceBranch还是Spectral Head？",
+    "expected_chunk_ids": [
+      "a37e0f68eaee"
+    ]
+  },
+  {
+    "id": "q008",
+    "question": "NCSD-Net默认的输入长度、输出频率维、中间频率维和通道规模是多少？",
+    "expected_chunk_ids": [
+      "463cb2893c25"
+    ]
+  },
+  {
+    "id": "q009",
+    "question": "NCSD-Net的默认输入张量形状和I、Q通道顺序是什么？",
+    "expected_chunk_ids": [
+      "9e692983e9ee"
+    ]
+  },
+  {
+    "id": "q010",
+    "question": "NCSD-Net默认输出形状是什么，Wrapper还可能返回哪些辅助字段？",
+    "expected_chunk_ids": [
+      "bbeaa1de05e5",
+      "16362dda708d"
+    ]
+  },
+  {
+    "id": "q011",
+    "question": "NCSD-Net怎样使用复幅值最大值共同归一化I和Q，为什么不能分别归一化？",
+    "expected_chunk_ids": [
+      "cc296076b21d"
+    ]
+  },
+  {
+    "id": "q012",
+    "question": "批量在线推理应采用整批归一化还是逐样本归一化，目前是否已经确定？",
+    "expected_chunk_ids": [
+      "2e1210769a47"
+    ]
+  },
+  {
+    "id": "q013",
+    "question": "没有采样率时能否把NCSD-Net输出的频率bin转换成物理Hz？",
+    "expected_chunk_ids": [
+      "2e1210769a47"
+    ]
+  },
+  {
+    "id": "q014",
+    "question": "NCSD-Net当前是否默认执行fftshift，为什么不能擅自改变FFT频率排列？",
+    "expected_chunk_ids": [
+      "66e30909bbf9"
+    ]
+  },
+  {
+    "id": "q015",
+    "question": "多窗口FFT的短窗口和长窗口分别偏向什么分辨率？",
+    "expected_chunk_ids": [
+      "17fd1669da10"
+    ]
+  },
+  {
+    "id": "q016",
+    "question": "FFT幅度经过什么处理后作为先验，又怎样融合进神经特征？",
+    "expected_chunk_ids": [
+      "6a7df2bd818f"
+    ]
+  },
+  {
+    "id": "q017",
+    "question": "FFT删除干预实验中的Peak F1如何变化，这个结果能否外推到冻结主测试集？",
+    "expected_chunk_ids": [
+      "776393442e21"
+    ]
+  },
+  {
+    "id": "q018",
+    "question": "best_primary.pth检查点用于哪些任务，能否由MATLAB应用检查点替代？",
+    "expected_chunk_ids": [
+      "2003ccd9c5a6",
+      "ba143dfbee1e"
+    ]
+  },
+  {
+    "id": "q019",
+    "question": "严格峰值检测器best_peak_detector.pth能否脱离冻结基础模型单独运行？",
+    "expected_chunk_ids": [
+      "307a4e031488"
+    ]
+  },
+  {
+    "id": "q020",
+    "question": "best_peak_recall.pth的用途是什么，为什么不能用它宣称冻结测试主结果？",
+    "expected_chunk_ids": [
+      "ebd8a6c39ab6"
+    ]
+  },
+  {
+    "id": "q021",
+    "question": "hit rate、GFSC@K和Peak F1在定义与评价目的上有什么区别？",
+    "expected_chunk_ids": [
+      "fc01644f2804",
+      "34e5d8b383c3"
+    ]
+  },
+  {
+    "id": "q022",
+    "question": "FROZEN_STRICT_MAIN_V1严格峰值协议使用了哪些NMS、匹配、容差和候选数规则？",
+    "expected_chunk_ids": [
+      "a017bb48e8ea"
+    ]
+  },
+  {
+    "id": "q023",
+    "question": "为什么GFSC@K、MATLAB固定工作点和same-FP Recall不能直接混在一起比较？",
+    "expected_chunk_ids": [
+      "f6c56d99bbe9",
+      "897dc068b061"
+    ]
+  },
+  {
+    "id": "q024",
+    "question": "在FROZEN_SUPPORT_V1中NCSD-Net、TFA-Net和HCTFR-Net的Overall hit rate分别是多少？",
+    "expected_chunk_ids": [
+      "4d4967bcfe09"
+    ]
+  },
+  {
+    "id": "q025",
+    "question": "在严格峰值检测Overall分组中三种模型的Peak F1和NCSD-Net的FP/frame是多少？",
+    "expected_chunk_ids": [
+      "89d29fe4e70c"
+    ]
+  },
+  {
+    "id": "q026",
+    "question": "固定阈值0的低信噪比严格检测中，为什么NCSD-Net不能被描述为优于TFA-Net和HCTFR-Net？",
+    "expected_chunk_ids": [
+      "d711ad473f66",
+      "fca27382c706"
+    ]
+  },
+  {
+    "id": "q027",
+    "question": "NCSD-Net在Table S5中的Overall GFSC@K是多少，这一数值能否称为Peak F1？",
+    "expected_chunk_ids": [
+      "9b4cc0278074"
+    ]
+  },
+  {
+    "id": "q028",
+    "question": "NCSD-Net在六个MATLAB可控信号场景中取得了怎样的排名，是否所有场景都领先？",
+    "expected_chunk_ids": [
+      "fff95f27e2b0"
+    ]
+  },
+  {
+    "id": "q029",
+    "question": "为什么已知真实分量数K的严格峰值协议不能直接描述成完全盲检测？",
+    "expected_chunk_ids": [
+      "d0811a5bb9e1"
+    ]
+  },
+  {
+    "id": "q030",
+    "question": "当知识库找不到可靠数值或用户提出跨协议比较时，SignalLab Agent应该怎样回答？",
+    "expected_chunk_ids": [
+      "100f93fb7d47",
+      "91c2515c5dac"
+    ]
+  }
+]

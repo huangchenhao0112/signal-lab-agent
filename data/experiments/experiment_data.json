@@ -1,0 +1,406 @@
+{
+  "schema_version": "2.0",
+  "description": "NCSD-Net Agent真实实验结果库。不同协议、阈值和数据分组的结果不得直接混合比较。",
+  "metric_directions": {
+    "hit_rate": "higher",
+    "weighted_l2": "lower",
+    "mse": "lower",
+    "psnr_db": "higher",
+    "renyi_entropy": "lower",
+    "peak_precision": "higher",
+    "peak_recall": "higher",
+    "peak_f1": "higher",
+    "fp_per_frame": "lower",
+    "localization_mae": "lower",
+    "gfsc_at_k": "higher",
+    "same_fp_recall_gain": "higher",
+    "parameter_count_m": "lower",
+    "gflops_profiled": "lower",
+    "latency_mean_ms": "lower",
+    "latency_median_ms": "lower",
+    "latency_p95_ms": "lower",
+    "gpu_peak_allocated_mib": "lower",
+    "gpu_incremental_peak_mib": "lower"
+  },
+  "metric_definitions": {
+    "hit_rate": {
+      "meaning": "真实频率支撑落入预测候选频率附近的覆盖率",
+      "tolerance_bins": 2,
+      "warning": "主要衡量覆盖率，不充分惩罚误检，不能称为Peak F1"
+    },
+    "gfsc_at_k": {
+      "meaning": "二维时频图沿时间维聚合后的全局Top-K频率支撑覆盖率",
+      "warning": "不能与hit_rate或Peak F1直接比较"
+    },
+    "peak_f1": {
+      "meaning": "严格峰值一对一匹配下Peak Precision与Peak Recall的调和平均",
+      "warning": "不同阈值、信号集和检测协议之间不能直接比较"
+    },
+    "weighted_l2": {
+      "meaning": "加权时频重建误差",
+      "warning": "不能与检测类指标直接比较"
+    }
+  },
+  "models": {
+    "NCSD-Net": {
+      "groups": {
+        "overall": {
+          "metrics": {
+            "hit_rate": 0.948271,
+            "weighted_l2": 3511098.008,
+            "mse": 24.264210,
+            "psnr_db": 17.936850,
+            "renyi_entropy": 10.107316,
+            "peak_f1": 0.374176,
+            "fp_per_frame": 2.1935,
+            "localization_mae": 0.8507,
+            "gfsc_at_k": 0.409332
+          }
+        },
+        "low_snr": {
+          "metrics": {
+            "hit_rate": 0.9672,
+            "peak_f1": 0.190849,
+            "fp_per_frame": 3.3028,
+            "gfsc_at_k": 0.351461
+          }
+        },
+        "multi_component": {
+          "metrics": {
+            "hit_rate": 0.9609,
+            "peak_f1": 0.334082,
+            "gfsc_at_k": 0.426284
+          }
+        },
+        "weak_component": {
+          "metrics": {
+            "hit_rate": 0.9496,
+            "peak_f1": 0.334015,
+            "gfsc_at_k": 0.416243
+          }
+        },
+        "weak_multi_component": {
+          "metrics": {
+            "peak_f1": 0.323094
+          }
+        },
+        "low_snr_multi_component": {
+          "metrics": {
+            "hit_rate": 0.9902,
+            "peak_f1": 0.175144,
+            "gfsc_at_k": 0.363280
+          }
+        },
+        "snr_-10_db": {"metrics": {"hit_rate": 0.9766}},
+        "snr_-5_db": {"metrics": {"hit_rate": 0.9726}},
+        "snr_0_db": {"metrics": {"hit_rate": 0.9525}},
+        "snr_5_db": {"metrics": {"hit_rate": 0.9327}},
+        "snr_10_db": {"metrics": {"hit_rate": 0.9356}},
+        "snr_20_db": {"metrics": {"hit_rate": 0.9296}},
+        "snr_30_db": {"metrics": {"hit_rate": 0.9382}},
+        "matlab_synthetic_low": {"metrics": {"peak_f1": 0.431}},
+        "matlab_synthetic_weak": {"metrics": {"peak_f1": 0.478}},
+        "matlab_motor_low": {"metrics": {"peak_f1": 0.473}},
+        "matlab_motor_weak": {"metrics": {"peak_f1": 0.471}},
+        "matlab_voice_low": {"metrics": {"peak_f1": 0.470}},
+        "matlab_voice_weak": {"metrics": {"peak_f1": 0.450}},
+        "efficiency_rtx5090_batch1": {
+          "metrics": {
+            "parameter_count_m": 0.481904,
+            "gflops_profiled": 3.504608,
+            "gpu_peak_allocated_mib": 65.811,
+            "gpu_incremental_peak_mib": 50.0,
+            "latency_mean_ms": 10.582457,
+            "latency_median_ms": 10.784950,
+            "latency_p95_ms": 11.567500
+          }
+        }
+      }
+    },
+    "TFA-Net": {
+      "groups": {
+        "overall": {
+          "metrics": {
+            "hit_rate": 0.872569,
+            "weighted_l2": 3303939.685,
+            "mse": 25.566902,
+            "psnr_db": 17.656901,
+            "renyi_entropy": 10.132133,
+            "peak_f1": 0.322781,
+            "fp_per_frame": 11.1162,
+            "localization_mae": 0.8299,
+            "gfsc_at_k": 0.380089
+          }
+        },
+        "low_snr": {
+          "metrics": {
+            "hit_rate": 0.8456,
+            "peak_f1": 0.222030,
+            "fp_per_frame": 11.7615,
+            "gfsc_at_k": 0.310802
+          }
+        },
+        "multi_component": {
+          "metrics": {
+            "hit_rate": 0.8877,
+            "peak_f1": 0.304768,
+            "gfsc_at_k": 0.405569
+          }
+        },
+        "weak_component": {
+          "metrics": {
+            "hit_rate": 0.8681,
+            "peak_f1": 0.298197,
+            "gfsc_at_k": 0.390046
+          }
+        },
+        "weak_multi_component": {"metrics": {"peak_f1": 0.297342}},
+        "low_snr_multi_component": {
+          "metrics": {
+            "hit_rate": 0.8953,
+            "peak_f1": 0.222179,
+            "gfsc_at_k": 0.320066
+          }
+        },
+        "snr_-10_db": {"metrics": {"hit_rate": 0.8733}},
+        "snr_-5_db": {"metrics": {"hit_rate": 0.8499}},
+        "snr_0_db": {"metrics": {"hit_rate": 0.8136}},
+        "snr_5_db": {"metrics": {"hit_rate": 0.8200}},
+        "snr_10_db": {"metrics": {"hit_rate": 0.8606}},
+        "snr_20_db": {"metrics": {"hit_rate": 0.9295}},
+        "snr_30_db": {"metrics": {"hit_rate": 0.9611}},
+        "matlab_synthetic_low": {"metrics": {"peak_f1": 0.315}},
+        "matlab_synthetic_weak": {"metrics": {"peak_f1": 0.402}},
+        "matlab_motor_low": {"metrics": {"peak_f1": 0.419}},
+        "matlab_motor_weak": {"metrics": {"peak_f1": 0.434}},
+        "matlab_voice_low": {"metrics": {"peak_f1": 0.426}},
+        "matlab_voice_weak": {"metrics": {"peak_f1": 0.431}}
+      }
+    },
+    "HCTFR-Net": {
+      "reproduction_status": "project_reproduction_not_official_author_code",
+      "groups": {
+        "overall": {
+          "metrics": {
+            "hit_rate": 0.797715,
+            "weighted_l2": 3327461.196,
+            "mse": 16.618754,
+            "psnr_db": 20.391590,
+            "renyi_entropy": 8.983008,
+            "peak_f1": 0.319155,
+            "fp_per_frame": 11.1610,
+            "localization_mae": 0.8329,
+            "gfsc_at_k": 0.373940
+          }
+        },
+        "low_snr": {
+          "metrics": {
+            "peak_f1": 0.229682,
+            "fp_per_frame": 11.6994,
+            "gfsc_at_k": 0.319493
+          }
+        },
+        "multi_component": {"metrics": {"peak_f1": 0.299664, "gfsc_at_k": 0.397408}},
+        "weak_component": {"metrics": {"peak_f1": 0.293135, "gfsc_at_k": 0.379755}},
+        "weak_multi_component": {"metrics": {"peak_f1": 0.292419}},
+        "low_snr_multi_component": {"metrics": {"peak_f1": 0.227351, "gfsc_at_k": 0.334606}},
+        "matlab_synthetic_low": {"metrics": {"peak_f1": 0.360}},
+        "matlab_synthetic_weak": {"metrics": {"peak_f1": 0.523}},
+        "matlab_motor_low": {"metrics": {"peak_f1": 0.453}},
+        "matlab_motor_weak": {"metrics": {"peak_f1": 0.477}},
+        "matlab_voice_low": {"metrics": {"peak_f1": 0.447}},
+        "matlab_voice_weak": {"metrics": {"peak_f1": 0.445}}
+      }
+    },
+    "OG": {
+      "groups": {
+        "overall": {"metrics": {"gfsc_at_k": 0.143138}},
+        "low_snr": {"metrics": {"gfsc_at_k": 0.152354}},
+        "multi_component": {"metrics": {"gfsc_at_k": 0.166775}},
+        "weak_component": {"metrics": {"gfsc_at_k": 0.158097}},
+        "low_snr_multi_component": {"metrics": {"gfsc_at_k": 0.176062}}
+      }
+    },
+    "Swin": {
+      "groups": {
+        "overall": {"metrics": {"gfsc_at_k": 0.153499}},
+        "low_snr": {"metrics": {"gfsc_at_k": 0.163539}},
+        "multi_component": {"metrics": {"gfsc_at_k": 0.174005}},
+        "weak_component": {"metrics": {"gfsc_at_k": 0.164926}},
+        "low_snr_multi_component": {"metrics": {"gfsc_at_k": 0.189308}}
+      }
+    },
+    "CVS": {
+      "groups": {
+        "overall": {"metrics": {"gfsc_at_k": 0.154743}},
+        "low_snr": {"metrics": {"gfsc_at_k": 0.165931}},
+        "multi_component": {"metrics": {"gfsc_at_k": 0.176448}},
+        "weak_component": {"metrics": {"gfsc_at_k": 0.167972}},
+        "low_snr_multi_component": {"metrics": {"gfsc_at_k": 0.193260}}
+      }
+    }
+  },
+  "experiments": {
+    "FROZEN_SUPPORT_V1": {
+      "name": "冻结测试集支撑恢复与重建质量",
+      "sample_count": 3500,
+      "snr_db": [-10, -5, 0, 5, 10, 20, 30],
+      "samples_per_snr": 500,
+      "aggregation": "mean_of_per_sample_metrics",
+      "checkpoint_roles": {
+        "NCSD-Net": "frozen_primary",
+        "TFA-Net": "frozen_baseline_epoch_410",
+        "HCTFR-Net": "project_reproduction_best_mse"
+      },
+      "metrics": ["hit_rate", "weighted_l2", "mse", "psnr_db", "renyi_entropy"],
+      "sources": [
+        "outputs/paper_figures/paper_ready/source_data/table_hctfr_frozen_protocol.csv",
+        "outputs/results/hctfr_frozen_protocol_comparison.json",
+        "outputs/protocol_registry/CANONICAL_RESULT_IDENTITIES.csv"
+      ],
+      "comparability": "仅同协议、同分组和相同指标可直接比较"
+    },
+    "FROZEN_STRICT_MAIN_V1": {
+      "name": "冻结测试集严格峰值检测",
+      "sample_count": 3500,
+      "nms": "per_frame_1d",
+      "minimum_peak_distance_bins": 4,
+      "matching": "hungarian_one_to_one",
+      "matching_tolerance_bins": 2,
+      "known_true_component_count": true,
+      "maximum_candidates": "2.5K",
+      "default_threshold": 0,
+      "aggregation": "mean_of_per_sample_metrics",
+      "metrics": ["peak_f1", "fp_per_frame", "localization_mae"],
+      "sources": [
+        "outputs/reproduction_check/frozen_paired_official/frozen_group_means_official.csv",
+        "outputs/paper_figures/paper_ready/source_data/table_hctfr_strict_peak_audited_per_sample.csv"
+      ],
+      "comparability": "仅相同阈值、候选数、NMS和匹配规则下可直接比较"
+    },
+    "FROZEN_GFSC_S5": {
+      "name": "Table S5全局频率支撑覆盖率",
+      "protocol_id_status": "normalized_by_agent_pending_registry_confirmation",
+      "top_k_rule": "K=max(12,3Nc)",
+      "tolerance_bins": 2,
+      "aggregation": "mean_of_per_sample_metrics",
+      "metrics": ["gfsc_at_k"],
+      "sources": [
+        "outputs/paper_figures/paper_ready/source_data/tableS5_global_frequency_support_coverage_clarified.csv"
+      ],
+      "comparability": "只能与同一GFSC@K表、同一分组结果比较"
+    },
+    "MATLAB_FIXED_S6": {
+      "name": "Table S6 MATLAB可控信号固定工作点",
+      "trials_per_scenario": 30,
+      "aggregation": "mean_and_standard_deviation_across_paired_trials",
+      "checkpoint_roles": {
+        "NCSD-Net": "matlab_application_best_peak_recall",
+        "HCTFR-Net": "project_reproduction_best_mse"
+      },
+      "metrics": ["peak_f1"],
+      "sources": [
+        "outputs/paper_figures/paper_ready/source_data/table_matlab_strict_peak_extended_baselines_clean.csv"
+      ],
+      "comparability": "只能在同一场景和相同工作点下比较；不得与冻结严格峰值结果横向比较"
+    },
+    "NCSD_EFFICIENCY_RTX5090_BATCH1": {
+      "name": "NCSD-Net计算效率",
+      "environment": {
+        "python": "3.10.20",
+        "pytorch": "2.9.0+cu128",
+        "cuda": "12.8",
+        "gpu": "RTX 5090",
+        "batch_size": 1
+      },
+      "sources": ["outputs/results/model_efficiency.csv"],
+      "warning": "Profiler可能未完整覆盖FFT或自定义算子；耗时和显存只适用于记录的环境"
+    }
+  },
+  "protocol_records": {
+    "low_snr_validation_selected_threshold": {
+      "protocol": "FROZEN_STRICT_VALIDATION_SELECTED",
+      "model": "NCSD-Net",
+      "threshold": -10,
+      "records": [
+        {"group": "low_snr", "metric": "peak_f1", "value": 0.216569},
+        {"group": "low_snr_multi_component", "metric": "peak_f1", "value": 0.224843}
+      ],
+      "source": "outputs/paper_figures/paper_ready/source_data/strict_peak_formal_selected_group_summary.csv",
+      "warning": "不得替换固定阈值0的主表结果；另一证据链的0.216315不得自动合并或平均"
+    },
+    "matlab_ncsd_minus_hctfr_paired_difference": {
+      "protocol": "MATLAB_PAIRED_STATISTICS_S6",
+      "metric": "peak_f1_difference_ncsd_minus_hctfr",
+      "source": "outputs/paper_figures/paper_ready/source_data/table_hctfr_matlab_paired_statistics.csv",
+      "records": [
+        {"group": "synthetic_low", "value": 0.071009, "ci95": [0.063838, 0.078828]},
+        {"group": "synthetic_weak", "value": -0.044866, "ci95": [-0.057426, -0.031952]},
+        {"group": "motor_low", "value": 0.019296, "ci95": [0.013446, 0.025011]},
+        {"group": "motor_weak", "value": -0.006062, "ci95": [-0.011383, -0.000915]},
+        {"group": "voice_low", "value": 0.022815, "ci95": [0.013892, 0.032252]},
+        {"group": "voice_weak", "value": 0.005461, "ci95": [-0.002026, 0.013080]}
+      ]
+    },
+    "matlab_same_fp_recall_gain": {
+      "protocol": "MATLAB_SAME_FP_RECALL",
+      "metric": "same_fp_recall_gain",
+      "definition": "NCSD Recall减HCTFR Recall",
+      "source": "outputs/paper_figures/paper_ready/source_data/table_hctfr_same_fp_recall.csv",
+      "records": [
+        {"group": "synthetic_low", "value": 0.137216, "ci95": [0.125845, 0.149992]},
+        {"group": "motor_low", "value": 0.088173, "ci95": [0.078516, 0.097385]},
+        {"group": "voice_low", "value": 0.095341, "ci95": [0.080278, 0.110994]},
+        {"group": "synthetic_weak", "value": 0.111029, "ci95": [0.100361, 0.122514]},
+        {"group": "motor_weak", "value": 0.067090, "ci95": [0.060622, 0.073540]},
+        {"group": "voice_weak", "value": 0.052834, "ci95": [0.042880, 0.062755]}
+      ],
+      "warning": "曲线级同误检比较，不能当成固定工作点Peak F1"
+    },
+    "structural_ablation": {
+      "protocol": "STRUCTURAL_ABLATION",
+      "definition": "相对完整NCSD-Net的有符号变化",
+      "sources": [
+        "outputs/paper_figures/paper_ready/source_data/structural_ablation_multi_metric_tradeoff.csv",
+        "outputs/paper_figures/paper_ready/source_data/snr_dependent_structural_ablation.csv"
+      ],
+      "records": [
+        {"variant": "single_window_fft", "overall_hit_rate_change_pp": 0.73, "low_snr_hit_rate_change_pp": -0.88, "weak_hit_rate_change_pp": 1.32, "low_multi_hit_rate_change_pp": -0.50, "weighted_l2_change_percent": -14.75, "mse_change_percent": -25.74, "psnr_change_db": -1.151},
+        {"variant": "multi_window_mean_fusion", "overall_hit_rate_change_pp": -0.86, "low_snr_hit_rate_change_pp": -0.08, "weak_hit_rate_change_pp": -1.08, "low_multi_hit_rate_change_pp": -0.03, "weighted_l2_change_percent": 0.22, "mse_change_percent": 4.23, "psnr_change_db": 0.235},
+        {"variant": "without_fft", "overall_hit_rate_change_pp": -0.56, "low_snr_hit_rate_change_pp": -1.25, "weak_hit_rate_change_pp": -0.20, "low_multi_hit_rate_change_pp": -0.63, "weighted_l2_change_percent": -1.87, "mse_change_percent": -10.02, "psnr_change_db": -0.531}
+      ]
+    },
+    "formal_causal_ablation": {
+      "protocol": "FORMAL_CAUSAL_ABLATION",
+      "metric": "peak_f1",
+      "group": "overall",
+      "source": "outputs/ablation_formal/analysis/formal_ablation_main_table.csv",
+      "records": [
+        {"configuration": "tfa_baseline", "value": 0.322778},
+        {"configuration": "ncsd_p0_full", "value": 0.374164},
+        {"configuration": "o1_l_rec", "value": 0.374648},
+        {"configuration": "o2_l_rec_plus_l_peak", "value": 0.375788},
+        {"configuration": "o3_l_rec_plus_l_bg", "value": 0.375299},
+        {"configuration": "o4_full_loss", "value": 0.374164}
+      ],
+      "warning": "不得用这些消融值替换冻结主实验的0.374176"
+    },
+    "fft_deletion_intervention": {
+      "protocol": "FFT_DELETION_STRATIFIED_700",
+      "subset": "low_snr_300_of_stratified_700",
+      "metric": "peak_f1",
+      "source": "outputs/paper_figures/paper_ready/source_data/fft_deletion_shift_metrics.csv",
+      "records": [
+        {"configuration": "full_ncsd", "value": 0.1855},
+        {"configuration": "without_fft_reference", "value": 0.1686}
+      ],
+      "warning": "只能在同一分层子集内部配对解释，不能与冻结主协议低SNR结果直接比较"
+    }
+  },
+  "global_warnings": [
+    "hit_rate、GFSC@K和Peak F1是不同指标，不得混用",
+    "不同协议、阈值、数据集或分组结果不得直接比较",
+    "HCTFR-Net为项目内复现结果，不代表作者官方代码结果",
+    "未知字段必须返回null或待确认，禁止根据相似实验补数"
+  ]
+}

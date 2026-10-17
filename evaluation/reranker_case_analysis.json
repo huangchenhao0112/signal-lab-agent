@@ -1,0 +1,1089 @@
+[
+  {
+    "id": "q001",
+    "question": "NCSD-Net面向什么类型的信号，它的主要研究目标是什么？",
+    "expected_chunk_ids": [
+      "b8235a5ee2da"
+    ],
+    "hybrid_top3": [
+      "b8235a5ee2da",
+      "fc01644f2804",
+      "9e692983e9ee"
+    ],
+    "reranker_top3": [
+      "b8235a5ee2da",
+      "d5a1e70dd704",
+      "9e692983e9ee"
+    ],
+    "reranker_scores": [
+      {
+        "chunk_id": "b8235a5ee2da",
+        "score": 0.8608943920705914,
+        "original_rank": 1
+      },
+      {
+        "chunk_id": "d5a1e70dd704",
+        "score": 0.74109416123289,
+        "original_rank": 8
+      },
+      {
+        "chunk_id": "9e692983e9ee",
+        "score": 0.6127299726177522,
+        "original_rank": 3
+      }
+    ],
+    "hybrid_latency_ms": 1871.500300243497,
+    "rerank_latency_ms": 689.7073998115957
+  },
+  {
+    "id": "q002",
+    "question": "NCSD-Net项目包含哪些神经网络基线、传统方法和实验类型？",
+    "expected_chunk_ids": [
+      "d5a1e70dd704"
+    ],
+    "hybrid_top3": [
+      "b8235a5ee2da",
+      "ee3f7252e4cc",
+      "d5a1e70dd704"
+    ],
+    "reranker_top3": [
+      "d5a1e70dd704",
+      "e5a822ea4b22",
+      "c06f44351158"
+    ],
+    "reranker_scores": [
+      {
+        "chunk_id": "d5a1e70dd704",
+        "score": 0.9210877500146233,
+        "original_rank": 3
+      },
+      {
+        "chunk_id": "e5a822ea4b22",
+        "score": 0.6838284353920584,
+        "original_rank": 6
+      },
+      {
+        "chunk_id": "c06f44351158",
+        "score": 0.6785345729652978,
+        "original_rank": 10
+      }
+    ],
+    "hybrid_latency_ms": 172.4981004372239,
+    "rerank_latency_ms": 617.1678001992404
+  },
+  {
+    "id": "q003",
+    "question": "为什么不能宣称NCSD-Net在所有指标和全部场景中全面领先？",
+    "expected_chunk_ids": [
+      "ee3f7252e4cc"
+    ],
+    "hybrid_top3": [
+      "ee3f7252e4cc",
+      "c06f44351158",
+      "cf73b6f9d2a1"
+    ],
+    "reranker_top3": [
+      "ee3f7252e4cc",
+      "cf73b6f9d2a1",
+      "fff95f27e2b0"
+    ],
+    "reranker_scores": [
+      {
+        "chunk_id": "ee3f7252e4cc",
+        "score": 0.9388460116444917,
+        "original_rank": 1
+      },
+      {
+        "chunk_id": "cf73b6f9d2a1",
+        "score": 0.9289327493264175,
+        "original_rank": 3
+      },
+      {
+        "chunk_id": "fff95f27e2b0",
+        "score": 0.8910451962217079,
+        "original_rank": 6
+      }
+    ],
+    "hybrid_latency_ms": 160.97449976950884,
+    "rerank_latency_ms": 614.5922001451254
+  },
+  {
+    "id": "q004",
+    "question": "MSCP默认使用哪些卷积核，它负责提取什么特征？",
+    "expected_chunk_ids": [
+      "4314d917e138"
+    ],
+    "hybrid_top3": [
+      "4314d917e138",
+      "463cb2893c25",
+      "113a5976be27"
+    ],
+    "reranker_top3": [
+      "4314d917e138",
+      "463cb2893c25",
+      "e5a822ea4b22"
+    ],
+    "reranker_scores": [
+      {
+        "chunk_id": "4314d917e138",
+        "score": 0.9555087358823197,
+        "original_rank": 1
+      },
+      {
+        "chunk_id": "463cb2893c25",
+        "score": 0.4768067494852041,
+        "original_rank": 2
+      },
+      {
+        "chunk_id": "e5a822ea4b22",
+        "score": 0.43472014275565335,
+        "original_rank": 6
+      }
+    ],
+    "hybrid_latency_ms": 201.18660014122725,
+    "rerank_latency_ms": 608.4314999170601
+  },
+  {
+    "id": "q005",
+    "question": "CDCSIC和UASG在NCSD-Net中分别起什么作用？",
+    "expected_chunk_ids": [
+      "23537baeaa24"
+    ],
+    "hybrid_top3": [
+      "4314d917e138",
+      "ee3f7252e4cc",
+      "23537baeaa24"
+    ],
+    "reranker_top3": [
+      "23537baeaa24",
+      "4314d917e138",
+      "ee3f7252e4cc"
+    ],
+    "reranker_scores": [
+      {
+        "chunk_id": "23537baeaa24",
+        "score": 0.7092011439107646,
+        "original_rank": 3
+      },
+      {
+        "chunk_id": "4314d917e138",
+        "score": 0.6720119300228249,
+        "original_rank": 1
+      },
+      {
+        "chunk_id": "ee3f7252e4cc",
+        "score": 0.6486611608120687,
+        "original_rank": 2
+      }
+    ],
+    "hybrid_latency_ms": 214.14420008659363,
+    "rerank_latency_ms": 598.7352998927236
+  },
+  {
+    "id": "q006",
+    "question": "多窗口FFT参考分支默认使用哪些窗口、hop size和窗函数？",
+    "expected_chunk_ids": [
+      "113a5976be27",
+      "17fd1669da10"
+    ],
+    "hybrid_top3": [
+      "17fd1669da10",
+      "113a5976be27",
+      "6a7df2bd818f"
+    ],
+    "reranker_top3": [
+      "17fd1669da10",
+      "113a5976be27",
+      "23537baeaa24"
+    ],
+    "reranker_scores": [
+      {
+        "chunk_id": "17fd1669da10",
+        "score": 0.962853389603104,
+        "original_rank": 1
+      },
+      {
+        "chunk_id": "113a5976be27",
+        "score": 0.9188491524935447,
+        "original_rank": 2
+      },
+      {
+        "chunk_id": "23537baeaa24",
+        "score": 0.7247848236696949,
+        "original_rank": 8
+      }
+    ],
+    "hybrid_latency_ms": 190.19149988889694,
+    "rerank_latency_ms": 591.0780001431704
+  },
+  {
+    "id": "q007",
+    "question": "NCSD-Net的最终时频输出来自FFTReferenceBranch还是Spectral Head？",
+    "expected_chunk_ids": [
+      "a37e0f68eaee"
+    ],
+    "hybrid_top3": [
+      "a37e0f68eaee",
+      "465688e82662",
+      "6a7df2bd818f"
+    ],
+    "reranker_top3": [
+      "8450921aee77",
+      "465688e82662",
+      "a37e0f68eaee"
+    ],
+    "reranker_scores": [
+      {
+        "chunk_id": "8450921aee77",
+        "score": 0.9317957136525439,
+        "original_rank": 5
+      },
+      {
+        "chunk_id": "465688e82662",
+        "score": 0.8953313669201073,
+        "original_rank": 2
+      },
+      {
+        "chunk_id": "a37e0f68eaee",
+        "score": 0.8636146049906944,
+        "original_rank": 1
+      }
+    ],
+    "hybrid_latency_ms": 188.1317002698779,
+    "rerank_latency_ms": 615.2494996786118
+  },
+  {
+    "id": "q008",
+    "question": "NCSD-Net默认的输入长度、输出频率维、中间频率维和通道规模是多少？",
+    "expected_chunk_ids": [
+      "463cb2893c25"
+    ],
+    "hybrid_top3": [
+      "9e692983e9ee",
+      "463cb2893c25",
+      "b8235a5ee2da"
+    ],
+    "reranker_top3": [
+      "463cb2893c25",
+      "a37e0f68eaee",
+      "9e692983e9ee"
+    ],
+    "reranker_scores": [
+      {
+        "chunk_id": "463cb2893c25",
+        "score": 0.9128339562842975,
+        "original_rank": 2
+      },
+      {
+        "chunk_id": "a37e0f68eaee",
+        "score": 0.756296701681331,
+        "original_rank": 5
+      },
+      {
+        "chunk_id": "9e692983e9ee",
+        "score": 0.7325933740271766,
+        "original_rank": 1
+      }
+    ],
+    "hybrid_latency_ms": 183.6520000360906,
+    "rerank_latency_ms": 566.3373996503651
+  },
+  {
+    "id": "q009",
+    "question": "NCSD-Net的默认输入张量形状和I、Q通道顺序是什么？",
+    "expected_chunk_ids": [
+      "9e692983e9ee"
+    ],
+    "hybrid_top3": [
+      "9e692983e9ee",
+      "bbeaa1de05e5",
+      "b8235a5ee2da"
+    ],
+    "reranker_top3": [
+      "9e692983e9ee",
+      "36cc1ee8cf07",
+      "16362dda708d"
+    ],
+    "reranker_scores": [
+      {
+        "chunk_id": "9e692983e9ee",
+        "score": 0.9746759212158358,
+        "original_rank": 1
+      },
+      {
+        "chunk_id": "36cc1ee8cf07",
+        "score": 0.6299372552907365,
+        "original_rank": 8
+      },
+      {
+        "chunk_id": "16362dda708d",
+        "score": 0.5625533361604188,
+        "original_rank": 10
+      }
+    ],
+    "hybrid_latency_ms": 185.10950030758977,
+    "rerank_latency_ms": 628.4136003814638
+  },
+  {
+    "id": "q010",
+    "question": "NCSD-Net默认输出形状是什么，Wrapper还可能返回哪些辅助字段？",
+    "expected_chunk_ids": [
+      "16362dda708d",
+      "bbeaa1de05e5"
+    ],
+    "hybrid_top3": [
+      "16362dda708d",
+      "d2f8317d2c26",
+      "9e692983e9ee"
+    ],
+    "reranker_top3": [
+      "16362dda708d",
+      "9e692983e9ee",
+      "bbeaa1de05e5"
+    ],
+    "reranker_scores": [
+      {
+        "chunk_id": "16362dda708d",
+        "score": 0.9359911534434955,
+        "original_rank": 1
+      },
+      {
+        "chunk_id": "9e692983e9ee",
+        "score": 0.8221696372781422,
+        "original_rank": 3
+      },
+      {
+        "chunk_id": "bbeaa1de05e5",
+        "score": 0.7733912854420009,
+        "original_rank": 4
+      }
+    ],
+    "hybrid_latency_ms": 206.69899974018335,
+    "rerank_latency_ms": 587.6436000689864
+  },
+  {
+    "id": "q011",
+    "question": "NCSD-Net怎样使用复幅值最大值共同归一化I和Q，为什么不能分别归一化？",
+    "expected_chunk_ids": [
+      "cc296076b21d"
+    ],
+    "hybrid_top3": [
+      "1692e780418c",
+      "cc296076b21d",
+      "5e83a07f658e"
+    ],
+    "reranker_top3": [
+      "cc296076b21d",
+      "5e83a07f658e",
+      "6c0bae378797"
+    ],
+    "reranker_scores": [
+      {
+        "chunk_id": "cc296076b21d",
+        "score": 0.9408742674366423,
+        "original_rank": 2
+      },
+      {
+        "chunk_id": "5e83a07f658e",
+        "score": 0.7036357711347507,
+        "original_rank": 3
+      },
+      {
+        "chunk_id": "6c0bae378797",
+        "score": 0.7031861335924448,
+        "original_rank": 6
+      }
+    ],
+    "hybrid_latency_ms": 197.82839994877577,
+    "rerank_latency_ms": 605.4501002654433
+  },
+  {
+    "id": "q012",
+    "question": "批量在线推理应采用整批归一化还是逐样本归一化，目前是否已经确定？",
+    "expected_chunk_ids": [
+      "2e1210769a47"
+    ],
+    "hybrid_top3": [
+      "2e1210769a47",
+      "d0811a5bb9e1",
+      "1692e780418c"
+    ],
+    "reranker_top3": [
+      "d0811a5bb9e1",
+      "2e1210769a47",
+      "6c0bae378797"
+    ],
+    "reranker_scores": [
+      {
+        "chunk_id": "d0811a5bb9e1",
+        "score": 0.9266595417926417,
+        "original_rank": 2
+      },
+      {
+        "chunk_id": "2e1210769a47",
+        "score": 0.8800236830307613,
+        "original_rank": 1
+      },
+      {
+        "chunk_id": "6c0bae378797",
+        "score": 0.5537184556796715,
+        "original_rank": 5
+      }
+    ],
+    "hybrid_latency_ms": 167.94040007516742,
+    "rerank_latency_ms": 628.1981999054551
+  },
+  {
+    "id": "q013",
+    "question": "没有采样率时能否把NCSD-Net输出的频率bin转换成物理Hz？",
+    "expected_chunk_ids": [
+      "2e1210769a47"
+    ],
+    "hybrid_top3": [
+      "66e30909bbf9",
+      "5ee5cf672061",
+      "2e1210769a47"
+    ],
+    "reranker_top3": [
+      "2e1210769a47",
+      "66e30909bbf9",
+      "5ee5cf672061"
+    ],
+    "reranker_scores": [
+      {
+        "chunk_id": "2e1210769a47",
+        "score": 0.7926512432067214,
+        "original_rank": 3
+      },
+      {
+        "chunk_id": "66e30909bbf9",
+        "score": 0.7562713585157139,
+        "original_rank": 1
+      },
+      {
+        "chunk_id": "5ee5cf672061",
+        "score": 0.7356608103879756,
+        "original_rank": 2
+      }
+    ],
+    "hybrid_latency_ms": 266.652500256896,
+    "rerank_latency_ms": 605.5179997347295
+  },
+  {
+    "id": "q014",
+    "question": "NCSD-Net当前是否默认执行fftshift，为什么不能擅自改变FFT频率排列？",
+    "expected_chunk_ids": [
+      "66e30909bbf9"
+    ],
+    "hybrid_top3": [
+      "66e30909bbf9",
+      "1692e780418c",
+      "113a5976be27"
+    ],
+    "reranker_top3": [
+      "66e30909bbf9",
+      "1692e780418c",
+      "465688e82662"
+    ],
+    "reranker_scores": [
+      {
+        "chunk_id": "66e30909bbf9",
+        "score": 0.8973519293081812,
+        "original_rank": 1
+      },
+      {
+        "chunk_id": "1692e780418c",
+        "score": 0.8314600842363675,
+        "original_rank": 2
+      },
+      {
+        "chunk_id": "465688e82662",
+        "score": 0.7490783392445076,
+        "original_rank": 7
+      }
+    ],
+    "hybrid_latency_ms": 189.29520016536117,
+    "rerank_latency_ms": 632.6313996687531
+  },
+  {
+    "id": "q015",
+    "question": "多窗口FFT的短窗口和长窗口分别偏向什么分辨率？",
+    "expected_chunk_ids": [
+      "17fd1669da10"
+    ],
+    "hybrid_top3": [
+      "17fd1669da10",
+      "113a5976be27",
+      "6a7df2bd818f"
+    ],
+    "reranker_top3": [
+      "17fd1669da10",
+      "6a7df2bd818f",
+      "401c52160030"
+    ],
+    "reranker_scores": [
+      {
+        "chunk_id": "17fd1669da10",
+        "score": 0.9411092306083573,
+        "original_rank": 1
+      },
+      {
+        "chunk_id": "6a7df2bd818f",
+        "score": 0.7011336839651616,
+        "original_rank": 3
+      },
+      {
+        "chunk_id": "401c52160030",
+        "score": 0.6362782258033328,
+        "original_rank": 5
+      }
+    ],
+    "hybrid_latency_ms": 162.86030039191246,
+    "rerank_latency_ms": 592.5704999826849
+  },
+  {
+    "id": "q016",
+    "question": "FFT幅度经过什么处理后作为先验，又怎样融合进神经特征？",
+    "expected_chunk_ids": [
+      "6a7df2bd818f"
+    ],
+    "hybrid_top3": [
+      "6a7df2bd818f",
+      "113a5976be27",
+      "a37e0f68eaee"
+    ],
+    "reranker_top3": [
+      "6a7df2bd818f",
+      "113a5976be27",
+      "465688e82662"
+    ],
+    "reranker_scores": [
+      {
+        "chunk_id": "6a7df2bd818f",
+        "score": 0.9632676351183317,
+        "original_rank": 1
+      },
+      {
+        "chunk_id": "113a5976be27",
+        "score": 0.8261874888624969,
+        "original_rank": 2
+      },
+      {
+        "chunk_id": "465688e82662",
+        "score": 0.7508303171821575,
+        "original_rank": 4
+      }
+    ],
+    "hybrid_latency_ms": 159.36139971017838,
+    "rerank_latency_ms": 609.1800001449883
+  },
+  {
+    "id": "q017",
+    "question": "FFT删除干预实验中的Peak F1如何变化，这个结果能否外推到冻结主测试集？",
+    "expected_chunk_ids": [
+      "776393442e21"
+    ],
+    "hybrid_top3": [
+      "776393442e21",
+      "82f98b4ce686",
+      "401c52160030"
+    ],
+    "reranker_top3": [
+      "465688e82662",
+      "776393442e21",
+      "418582e0037a"
+    ],
+    "reranker_scores": [
+      {
+        "chunk_id": "465688e82662",
+        "score": 0.7977144404560861,
+        "original_rank": 5
+      },
+      {
+        "chunk_id": "776393442e21",
+        "score": 0.7738001732970747,
+        "original_rank": 1
+      },
+      {
+        "chunk_id": "418582e0037a",
+        "score": 0.7689725692783116,
+        "original_rank": 10
+      }
+    ],
+    "hybrid_latency_ms": 211.1602001823485,
+    "rerank_latency_ms": 619.4410002790391
+  },
+  {
+    "id": "q018",
+    "question": "best_primary.pth检查点用于哪些任务，能否由MATLAB应用检查点替代？",
+    "expected_chunk_ids": [
+      "2003ccd9c5a6",
+      "ba143dfbee1e"
+    ],
+    "hybrid_top3": [
+      "ebd8a6c39ab6",
+      "ba143dfbee1e",
+      "534195d52c16"
+    ],
+    "reranker_top3": [
+      "534195d52c16",
+      "2003ccd9c5a6",
+      "5e83a07f658e"
+    ],
+    "reranker_scores": [
+      {
+        "chunk_id": "534195d52c16",
+        "score": 0.8854179286338573,
+        "original_rank": 3
+      },
+      {
+        "chunk_id": "2003ccd9c5a6",
+        "score": 0.8571841341059618,
+        "original_rank": 6
+      },
+      {
+        "chunk_id": "5e83a07f658e",
+        "score": 0.8472313802350813,
+        "original_rank": 5
+      }
+    ],
+    "hybrid_latency_ms": 158.18520030006766,
+    "rerank_latency_ms": 601.1179001070559
+  },
+  {
+    "id": "q019",
+    "question": "严格峰值检测器best_peak_detector.pth能否脱离冻结基础模型单独运行？",
+    "expected_chunk_ids": [
+      "307a4e031488"
+    ],
+    "hybrid_top3": [
+      "307a4e031488",
+      "38ce6f3b9a93",
+      "ba143dfbee1e"
+    ],
+    "reranker_top3": [
+      "307a4e031488",
+      "38ce6f3b9a93",
+      "ba143dfbee1e"
+    ],
+    "reranker_scores": [
+      {
+        "chunk_id": "307a4e031488",
+        "score": 0.886947726454901,
+        "original_rank": 1
+      },
+      {
+        "chunk_id": "38ce6f3b9a93",
+        "score": 0.8106393429955547,
+        "original_rank": 2
+      },
+      {
+        "chunk_id": "ba143dfbee1e",
+        "score": 0.7898898935651745,
+        "original_rank": 3
+      }
+    ],
+    "hybrid_latency_ms": 205.77629981562495,
+    "rerank_latency_ms": 586.2195999361575
+  },
+  {
+    "id": "q020",
+    "question": "best_peak_recall.pth的用途是什么，为什么不能用它宣称冻结测试主结果？",
+    "expected_chunk_ids": [
+      "ebd8a6c39ab6"
+    ],
+    "hybrid_top3": [
+      "ebd8a6c39ab6",
+      "2003ccd9c5a6",
+      "307a4e031488"
+    ],
+    "reranker_top3": [
+      "ebd8a6c39ab6",
+      "38ce6f3b9a93",
+      "2003ccd9c5a6"
+    ],
+    "reranker_scores": [
+      {
+        "chunk_id": "ebd8a6c39ab6",
+        "score": 0.9134315812808889,
+        "original_rank": 1
+      },
+      {
+        "chunk_id": "38ce6f3b9a93",
+        "score": 0.8725503621454058,
+        "original_rank": 9
+      },
+      {
+        "chunk_id": "2003ccd9c5a6",
+        "score": 0.7909162950333426,
+        "original_rank": 2
+      }
+    ],
+    "hybrid_latency_ms": 353.88580011203885,
+    "rerank_latency_ms": 686.4026999101043
+  },
+  {
+    "id": "q021",
+    "question": "hit rate、GFSC@K和Peak F1在定义与评价目的上有什么区别？",
+    "expected_chunk_ids": [
+      "34e5d8b383c3",
+      "fc01644f2804"
+    ],
+    "hybrid_top3": [
+      "4d3397db28af",
+      "fc01644f2804",
+      "5ee5cf672061"
+    ],
+    "reranker_top3": [
+      "fc01644f2804",
+      "4d3397db28af",
+      "69559213014e"
+    ],
+    "reranker_scores": [
+      {
+        "chunk_id": "fc01644f2804",
+        "score": 0.9458522776228621,
+        "original_rank": 2
+      },
+      {
+        "chunk_id": "4d3397db28af",
+        "score": 0.8506071817059111,
+        "original_rank": 1
+      },
+      {
+        "chunk_id": "69559213014e",
+        "score": 0.8091328809831062,
+        "original_rank": 8
+      }
+    ],
+    "hybrid_latency_ms": 215.31330002471805,
+    "rerank_latency_ms": 640.9636000171304
+  },
+  {
+    "id": "q022",
+    "question": "FROZEN_STRICT_MAIN_V1严格峰值协议使用了哪些NMS、匹配、容差和候选数规则？",
+    "expected_chunk_ids": [
+      "a017bb48e8ea"
+    ],
+    "hybrid_top3": [
+      "a017bb48e8ea",
+      "a5e647323dcf",
+      "c06f44351158"
+    ],
+    "reranker_top3": [
+      "a017bb48e8ea",
+      "c06f44351158",
+      "807d7d8d9c3d"
+    ],
+    "reranker_scores": [
+      {
+        "chunk_id": "a017bb48e8ea",
+        "score": 0.9322832065113887,
+        "original_rank": 1
+      },
+      {
+        "chunk_id": "c06f44351158",
+        "score": 0.8024244218972851,
+        "original_rank": 3
+      },
+      {
+        "chunk_id": "807d7d8d9c3d",
+        "score": 0.7633346269042932,
+        "original_rank": 10
+      }
+    ],
+    "hybrid_latency_ms": 156.20330022647977,
+    "rerank_latency_ms": 619.781400077045
+  },
+  {
+    "id": "q023",
+    "question": "为什么GFSC@K、MATLAB固定工作点和same-FP Recall不能直接混在一起比较？",
+    "expected_chunk_ids": [
+      "897dc068b061",
+      "f6c56d99bbe9"
+    ],
+    "hybrid_top3": [
+      "897dc068b061",
+      "f6c56d99bbe9",
+      "69559213014e"
+    ],
+    "reranker_top3": [
+      "f6c56d99bbe9",
+      "897dc068b061",
+      "69559213014e"
+    ],
+    "reranker_scores": [
+      {
+        "chunk_id": "f6c56d99bbe9",
+        "score": 0.8849856461946708,
+        "original_rank": 2
+      },
+      {
+        "chunk_id": "897dc068b061",
+        "score": 0.8642455004044775,
+        "original_rank": 1
+      },
+      {
+        "chunk_id": "69559213014e",
+        "score": 0.7118973058290217,
+        "original_rank": 3
+      }
+    ],
+    "hybrid_latency_ms": 206.8634000606835,
+    "rerank_latency_ms": 604.6889000572264
+  },
+  {
+    "id": "q024",
+    "question": "在FROZEN_SUPPORT_V1中NCSD-Net、TFA-Net和HCTFR-Net的Overall hit rate分别是多少？",
+    "expected_chunk_ids": [
+      "4d4967bcfe09"
+    ],
+    "hybrid_top3": [
+      "4d4967bcfe09",
+      "89d29fe4e70c",
+      "c06f44351158"
+    ],
+    "reranker_top3": [
+      "4d4967bcfe09",
+      "9b4cc0278074",
+      "69559213014e"
+    ],
+    "reranker_scores": [
+      {
+        "chunk_id": "4d4967bcfe09",
+        "score": 0.9194582750860011,
+        "original_rank": 1
+      },
+      {
+        "chunk_id": "9b4cc0278074",
+        "score": 0.6850867736736403,
+        "original_rank": 7
+      },
+      {
+        "chunk_id": "69559213014e",
+        "score": 0.6843811874440537,
+        "original_rank": 6
+      }
+    ],
+    "hybrid_latency_ms": 188.6901999823749,
+    "rerank_latency_ms": 610.2292998693883
+  },
+  {
+    "id": "q025",
+    "question": "在严格峰值检测Overall分组中三种模型的Peak F1和NCSD-Net的FP/frame是多少？",
+    "expected_chunk_ids": [
+      "89d29fe4e70c"
+    ],
+    "hybrid_top3": [
+      "89d29fe4e70c",
+      "d711ad473f66",
+      "c06f44351158"
+    ],
+    "reranker_top3": [
+      "d2f8317d2c26",
+      "c06f44351158",
+      "89d29fe4e70c"
+    ],
+    "reranker_scores": [
+      {
+        "chunk_id": "d2f8317d2c26",
+        "score": 0.834922199057629,
+        "original_rank": 8
+      },
+      {
+        "chunk_id": "c06f44351158",
+        "score": 0.7560766402753476,
+        "original_rank": 3
+      },
+      {
+        "chunk_id": "89d29fe4e70c",
+        "score": 0.6969338519507107,
+        "original_rank": 1
+      }
+    ],
+    "hybrid_latency_ms": 187.60380009189248,
+    "rerank_latency_ms": 590.909100137651
+  },
+  {
+    "id": "q026",
+    "question": "固定阈值0的低信噪比严格检测中，为什么NCSD-Net不能被描述为优于TFA-Net和HCTFR-Net？",
+    "expected_chunk_ids": [
+      "d711ad473f66",
+      "fca27382c706"
+    ],
+    "hybrid_top3": [
+      "89d29fe4e70c",
+      "d711ad473f66",
+      "81ec6b9a17d0"
+    ],
+    "reranker_top3": [
+      "81ec6b9a17d0",
+      "d711ad473f66",
+      "89d29fe4e70c"
+    ],
+    "reranker_scores": [
+      {
+        "chunk_id": "81ec6b9a17d0",
+        "score": 0.887374006138334,
+        "original_rank": 3
+      },
+      {
+        "chunk_id": "d711ad473f66",
+        "score": 0.8799242791921724,
+        "original_rank": 2
+      },
+      {
+        "chunk_id": "89d29fe4e70c",
+        "score": 0.8725925703286648,
+        "original_rank": 1
+      }
+    ],
+    "hybrid_latency_ms": 166.64170008152723,
+    "rerank_latency_ms": 593.4359999373555
+  },
+  {
+    "id": "q027",
+    "question": "NCSD-Net在Table S5中的Overall GFSC@K是多少，这一数值能否称为Peak F1？",
+    "expected_chunk_ids": [
+      "9b4cc0278074"
+    ],
+    "hybrid_top3": [
+      "9b4cc0278074",
+      "c06f44351158",
+      "fc01644f2804"
+    ],
+    "reranker_top3": [
+      "9b4cc0278074",
+      "d2f8317d2c26",
+      "f6c56d99bbe9"
+    ],
+    "reranker_scores": [
+      {
+        "chunk_id": "9b4cc0278074",
+        "score": 0.926634757936591,
+        "original_rank": 1
+      },
+      {
+        "chunk_id": "d2f8317d2c26",
+        "score": 0.7888908505430356,
+        "original_rank": 8
+      },
+      {
+        "chunk_id": "f6c56d99bbe9",
+        "score": 0.7535455357027551,
+        "original_rank": 7
+      }
+    ],
+    "hybrid_latency_ms": 270.7396000623703,
+    "rerank_latency_ms": 610.2028996683657
+  },
+  {
+    "id": "q028",
+    "question": "NCSD-Net在六个MATLAB可控信号场景中取得了怎样的排名，是否所有场景都领先？",
+    "expected_chunk_ids": [
+      "fff95f27e2b0"
+    ],
+    "hybrid_top3": [
+      "fff95f27e2b0",
+      "e5a822ea4b22",
+      "ee3f7252e4cc"
+    ],
+    "reranker_top3": [
+      "fff95f27e2b0",
+      "e5a822ea4b22",
+      "c06f44351158"
+    ],
+    "reranker_scores": [
+      {
+        "chunk_id": "fff95f27e2b0",
+        "score": 0.8417848442169624,
+        "original_rank": 1
+      },
+      {
+        "chunk_id": "e5a822ea4b22",
+        "score": 0.7799235819090402,
+        "original_rank": 2
+      },
+      {
+        "chunk_id": "c06f44351158",
+        "score": 0.7217069856662157,
+        "original_rank": 7
+      }
+    ],
+    "hybrid_latency_ms": 322.949499823153,
+    "rerank_latency_ms": 580.2210001274943
+  },
+  {
+    "id": "q029",
+    "question": "为什么已知真实分量数K的严格峰值协议不能直接描述成完全盲检测？",
+    "expected_chunk_ids": [
+      "d0811a5bb9e1"
+    ],
+    "hybrid_top3": [
+      "d0811a5bb9e1",
+      "a5e647323dcf",
+      "34e5d8b383c3"
+    ],
+    "reranker_top3": [
+      "d0811a5bb9e1",
+      "307a4e031488",
+      "91c2515c5dac"
+    ],
+    "reranker_scores": [
+      {
+        "chunk_id": "d0811a5bb9e1",
+        "score": 0.930864465167385,
+        "original_rank": 1
+      },
+      {
+        "chunk_id": "307a4e031488",
+        "score": 0.7059985666142321,
+        "original_rank": 9
+      },
+      {
+        "chunk_id": "91c2515c5dac",
+        "score": 0.702523168531455,
+        "original_rank": 4
+      }
+    ],
+    "hybrid_latency_ms": 189.8867003619671,
+    "rerank_latency_ms": 618.0571001023054
+  },
+  {
+    "id": "q030",
+    "question": "当知识库找不到可靠数值或用户提出跨协议比较时，SignalLab Agent应该怎样回答？",
+    "expected_chunk_ids": [
+      "100f93fb7d47",
+      "91c2515c5dac"
+    ],
+    "hybrid_top3": [
+      "100f93fb7d47",
+      "d2f8317d2c26",
+      "91c2515c5dac"
+    ],
+    "reranker_top3": [
+      "100f93fb7d47",
+      "91c2515c5dac",
+      "d2f8317d2c26"
+    ],
+    "reranker_scores": [
+      {
+        "chunk_id": "100f93fb7d47",
+        "score": 0.8729950987111679,
+        "original_rank": 1
+      },
+      {
+        "chunk_id": "91c2515c5dac",
+        "score": 0.8461067628053447,
+        "original_rank": 3
+      },
+      {
+        "chunk_id": "d2f8317d2c26",
+        "score": 0.7160431170881603,
+        "original_rank": 2
+      }
+    ],
+    "hybrid_latency_ms": 196.58239977434278,
+    "rerank_latency_ms": 622.5914000533521
+  }
+]
