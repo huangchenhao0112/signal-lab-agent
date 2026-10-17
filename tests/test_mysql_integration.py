@@ -4,7 +4,9 @@ import uuid
 
 from app.database.mysql import SessionLocal
 from app.database.models import AgentSession, AgentMessage
+import pytest
 
+pytestmark = pytest.mark.integration
 
 def test_mysql_session_and_message_crud():
     """

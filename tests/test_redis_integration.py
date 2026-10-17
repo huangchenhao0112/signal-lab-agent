@@ -5,6 +5,8 @@ import uuid
 
 import pytest
 
+pytestmark = pytest.mark.integration
+
 from agent.memory.redis_memory import (
     RedisConversationMemory,
 )
