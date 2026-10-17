@@ -282,7 +282,66 @@ def test_agent_memory(
 def test_agent_planner(
     client: TestClient,
     auth_headers: dict,
+    monkeypatch,
 ):
+    async def fake_ainvoke(state):
+        return {
+            "route": "plan",
+            "route_reason": (
+                "复杂任务包含模型比较、"
+                "原因解释和绘图"
+            ),
+            "tool_plan": [
+                {
+                    "tool_name": (
+                        "analyze_model_performance"
+                    ),
+                    "arguments": {
+                        "models": [
+                            "NCSD-Net",
+                            "TFA-Net",
+                            "HCTFR-Net",
+                        ],
+                        "group": "low_snr",
+                    },
+                },
+                {
+                    "tool_name": (
+                        "search_research_docs"
+                    ),
+                    "arguments": {
+                        "query": (
+                            "low_snr模型性能差异原因"
+                        ),
+                    },
+                },
+                {
+                    "tool_name": (
+                        "generate_metric_plot"
+                    ),
+                    "arguments": {
+                        "metric": "peak_f1",
+                        "group": "low_snr",
+                    },
+                },
+            ],
+            "tools_used": [
+                "analyze_model_performance",
+                "search_research_docs",
+                "generate_metric_plot",
+            ],
+            "final_answer": (
+                "已完成模型比较、原因解释和"
+                "peak_f1对比图生成。"
+            ),
+        }
+
+    monkeypatch.setattr(
+        client.app.state.agent_runtime.graph,
+        "ainvoke",
+        fake_ainvoke,
+    )
+
     response = client.post(
         "/agent/chat",
         json={
