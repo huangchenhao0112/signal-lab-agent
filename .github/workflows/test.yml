@@ -4,13 +4,22 @@ on:
   push:
     branches:
       - main
-      - master
 
   pull_request:
 
 jobs:
   test:
     runs-on: ubuntu-latest
+
+    env:
+      LLM_API_KEY: test-llm-key
+      LLM_BASE_URL: https://example.com
+      LLM_MODEL: test-model
+
+      EMBEDDING_API_KEY: test-embedding-key
+      EMBEDDING_BASE_URL: https://example.com
+
+      JWT_SECRET_KEY: test-ci-jwt-secret-key
 
     steps:
       - name: Checkout repository
