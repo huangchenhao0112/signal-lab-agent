@@ -9,12 +9,15 @@ from datetime import (
 from jose import jwt
 from passlib.context import CryptContext
 
+from app.core.config import get_settings
 
-SECRET_KEY = "change-this-in-env"
+settings = get_settings()
 
-ALGORITHM = "HS256"
-
-ACCESS_TOKEN_EXPIRE_MINUTES = 60
+SECRET_KEY = settings.jwt_secret_key
+ALGORITHM = settings.jwt_algorithm
+ACCESS_TOKEN_EXPIRE_MINUTES = (
+    settings.access_token_expire_minutes
+)
 
 
 pwd_context = CryptContext(

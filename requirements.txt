@@ -1,24 +1,60 @@
+# =========================
+# Web / API
+# =========================
 fastapi[standard]
+uvicorn
 httpx
 pydantic-settings
-pytest
+python-dotenv
+
+
+# =========================
+# LLM / Agent
+# =========================
 openai
-chromadb
-#本地部署需要下载sentence-transformers,但是用云端api只需要下载openai
-matplotlib
 langchain
 langchain-deepseek
+langgraph
 langgraph-checkpoint-sqlite>=3.0.1
-redis
 mcp[cli]>=2,<3
+
+
+# =========================
+# RAG / Retrieval
+# =========================
+chromadb
+jieba
+rank-bm25
+
+# 如果改成本地 Embedding，再安装：
+# sentence-transformers
+
+
+# =========================
+# Database / Memory
+# =========================
+redis
 sqlalchemy
 pymysql
-uvicorn
-python-dotenv
+
+
+# =========================
+# Auth / Security
+# =========================
 python-jose
 passlib
 bcrypt
-jieba
-rank-bm25
+
+
+# =========================
+# Visualization
+# =========================
+matplotlib
+
+
+# =========================
+# Testing
+# =========================
+pytest
 pytest-cov
 selenium

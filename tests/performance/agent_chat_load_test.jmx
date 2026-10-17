@@ -59,7 +59,7 @@
             </elementProp>
             <elementProp name="" elementType="Header">
               <stringProp name="Header.name">Authorization</stringProp>
-              <stringProp name="Header.value">Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJqbWV0ZXItdXNlciIsImV4cCI6MTc5MjIyMTMyNX0.6hPFVSjHWoKuHV4R9mXKP6q7lw7Ze-7RwTXNKGoKd6g</stringProp>
+              <stringProp name="Header.value">Bearer ${__P(token,)}</stringProp>
             </elementProp>
           </collectionProp>
         </HeaderManager>

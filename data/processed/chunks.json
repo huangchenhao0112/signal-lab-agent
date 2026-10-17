@@ -1,0 +1,392 @@
+[
+  {
+    "chunk_id": "b8235a5ee2da",
+    "source": "01_ncsd_project_overview.md",
+    "chunk_index": 0,
+    "content": "# NCSD-Net 项目概述\n\n## 项目定位\n\nNCSD-Net 是面向多分量非平稳复信号的神经时频表示模型。模型输入由实部和虚部组成的双通道时域信号，输出稠密二维时频表示。\n\n项目目标不是简单复现传统 FFT 图，而是把多窗口 FFT 作为显式频谱参考证据，与可学习的时域、多尺度和跨尺度特征融合，用于改善低信噪比、弱分量和多分量条件下的频率支撑恢复与峰值检测。\n\n## 项目组成"
+  },
+  {
+    "chunk_id": "d5a1e70dd704",
+    "source": "01_ncsd_project_overview.md",
+    "chunk_index": 1,
+    "content": "善低信噪比、弱分量和多分量条件下的频率支撑恢复与峰值检测。\n\n## 项目组成\n\n- NCSD-Net 主模型；\n- TFA-Net 基线；\n- HCTFR-Net 项目内复现基线；\n- OG、Swin、CVS 等扩展神经网络基线；\n- STFT、SST、MSST、SET 等传统方法；\n- 冻结测试、严格峰值检测、GFSC@K 和 MATLAB 可控信号实验；"
+  },
+  {
+    "chunk_id": "401c52160030",
+    "source": "01_ncsd_project_overview.md",
+    "chunk_index": 2,
+    "content": "；\n- 冻结测试、严格峰值检测、GFSC@K 和 MATLAB 可控信号实验；\n- 结构消融、损失消融和 FFT 机制干预实验。\n\n## 适合回答的问题\n\n该知识库可用于回答模型结构、输入输出、预处理、多窗口 FFT 作用、检查点用途、实验协议、主要结果、适用范围和已知限制。\n\n## 结论边界"
+  },
+  {
+    "chunk_id": "ee3f7252e4cc",
+    "source": "01_ncsd_project_overview.md",
+    "chunk_index": 3,
+    "content": "作用、检查点用途、实验协议、主要结果、适用范围和已知限制。\n\n## 结论边界\n\nNCSD-Net 在部分频率支撑恢复指标和场景中表现较好，但不能表述为在所有指标、全部场景和所有基线上全面领先。稠密时频重建、频率支撑覆盖和严格峰值检测属于不同任务，必须使用各自协议和指标解释。"
+  },
+  {
+    "chunk_id": "4314d917e138",
+    "source": "02_ncsd_architecture.md",
+    "chunk_index": 0,
+    "content": "# NCSD-Net 模型结构\n\n## 主干流程\n\nNCSD-Net 的主要实现位于 `models/my_model_first/ncsd_fftref.py`。主干可以概括为以下六个部分。\n\n### 1. 多尺度复数特征提取 MSCP\n\nMSCP 默认使用 15、31、63 三种卷积核，提取不同时间尺度的局部变化和调制特征。\n\n### 2. 跨尺度交互 CDCSIC"
+  },
+  {
+    "chunk_id": "23537baeaa24",
+    "source": "02_ncsd_architecture.md",
+    "chunk_index": 1,
+    "content": "不同时间尺度的局部变化和调制特征。\n\n### 2. 跨尺度交互 CDCSIC\n\nCDCSIC 在不同尺度分支之间进行信息交换和注意力建模，使不同时间尺度的特征能够相互补充。\n\n### 3. 不确定性感知尺度融合 UASG\n\nUASG 根据各尺度特征的不确定性自适应确定融合权重，而不是固定平均不同尺度分支。\n\n### 4. 多窗口 FFT 参考分支"
+  },
+  {
+    "chunk_id": "113a5976be27",
+    "source": "02_ncsd_architecture.md",
+    "chunk_index": 2,
+    "content": "权重，而不是固定平均不同尺度分支。\n\n### 4. 多窗口 FFT 参考分支\n\nFFT 参考分支默认使用 32、64、128 三种窗口。hop size 为窗口长度的八分之一，使用 Hann 窗和原生 FFT 频率排列。\n\n### 5. FFT 先验与神经特征融合\n\nFFT 参考经过对齐、权重选择和门控残差融合进入神经主干。FFT 是辅助参考证据，不直接充当最终预测结果。"
+  },
+  {
+    "chunk_id": "a37e0f68eaee",
+    "source": "02_ncsd_architecture.md",
+    "chunk_index": 3,
+    "content": "和门控残差融合进入神经主干。FFT 是辅助参考证据，不直接充当最终预测结果。\n\n### 6. Spectral Head\n\nSpectral Head 将融合后的神经特征映射为稠密二维时频表示。最终输出来自 Spectral Head，而不是 FFTReferenceBranch。\n\n## 默认规模\n\n- 输入长度：256；\n- 输出频率维：256；\n- 中间频率维：128；"
+  },
+  {
+    "chunk_id": "463cb2893c25",
+    "source": "02_ncsd_architecture.md",
+    "chunk_index": 4,
+    "content": "- 输入长度：256；\n- 输出频率维：256；\n- 中间频率维：128；\n- 默认通道规模：8；\n- 参数量约为 0.481904 M。\n\n## 结构理解要点\n\n多尺度分支负责提取不同时间尺度的信号变化，跨尺度模块负责交互，不确定性模块负责自适应融合，FFT 分支提供显式频谱参考，Spectral Head 负责产生最终时频输出。"
+  },
+  {
+    "chunk_id": "9e692983e9ee",
+    "source": "03_input_output_and_preprocessing.md",
+    "chunk_index": 0,
+    "content": "# NCSD-Net 输入、输出与预处理\n\n## 输入协议\n\n模型默认输入张量形状为：\n\n```text\n[B, 2, L]\n```\n\n- `B` 表示 batch size；\n- 第 0 通道是复信号实部 I；\n- 第 1 通道是复信号虚部 Q；\n- 默认 `L=256`。\n\n输入端需要检查 NaN、Inf、全零信号、通道顺序、数据类型以及信号长度。"
+  },
+  {
+    "chunk_id": "bbeaa1de05e5",
+    "source": "03_input_output_and_preprocessing.md",
+    "chunk_index": 1,
+    "content": "。\n\n输入端需要检查 NaN、Inf、全零信号、通道顺序、数据类型以及信号长度。单通道实信号不能在没有明确转换规则时直接作为模型输入。\n\n## 输出协议\n\n主输出形状为：\n\n```text\n[B, L, F_out]\n```\n\n默认输出为：\n\n```text\n[B, 256, 256]\n```"
+  },
+  {
+    "chunk_id": "16362dda708d",
+    "source": "03_input_output_and_preprocessing.md",
+    "chunk_index": 2,
+    "content": "```\n\n默认输出为：\n\n```text\n[B, 256, 256]\n```\n\nWrapper 可能返回 `output`、`tfr_pred`、`scale_weights`、`uncertainties`、`fft_weights`、`fft_prior_gain`、`fft_base`、`ncsd_map`、`ridge_mask`、`peak_map` 和 `peak_center_map"
+  },
+  {
+    "chunk_id": "6c0bae378797",
+    "source": "03_input_output_and_preprocessing.md",
+    "chunk_index": 3,
+    "content": "idge_mask`、`peak_map` 和 `peak_center_map` 等字段。\n\n其中 `output` 或 `tfr_pred` 是稠密时频预测。辅助图、中间权重和峰值图不能在没有说明的情况下替代主输出。\n\n## I/Q 归一化\n\n冻结评估使用的主要归一化形式为：\n\n```text\nabs_max = max(sqrt(I^2 + Q^2))"
+  },
+  {
+    "chunk_id": "cc296076b21d",
+    "source": "03_input_output_and_preprocessing.md",
+    "chunk_index": 4,
+    "content": "```text\nabs_max = max(sqrt(I^2 + Q^2))\nI_norm = I / abs_max\nQ_norm = Q / abs_max\n```\n\nI/Q 必须共享同一个复幅值最大值，不能分别归一化两个通道，否则会改变实部和虚部之间的相对幅度关系。\n\n当 `B=1` 时，该方式可以视为单条请求归一化。"
+  },
+  {
+    "chunk_id": "2e1210769a47",
+    "source": "03_input_output_and_preprocessing.md",
+    "chunk_index": 5,
+    "content": "和虚部之间的相对幅度关系。\n\n当 `B=1` 时，该方式可以视为单条请求归一化。对于批量在线推理，使用整批共享最大值还是逐样本最大值目前待确认，不能擅自选择后声称完全复现训练或冻结评估流程。\n\n## 频率坐标\n\n模型输出位于归一化频率网格。物理采样率以及频率 bin 到 Hz 的映射没有固定写死在模型内部，需要调用端提供采样率和经过确认的转换规则。"
+  },
+  {
+    "chunk_id": "66e30909bbf9",
+    "source": "03_input_output_and_preprocessing.md",
+    "chunk_index": 6,
+    "content": "z 的映射没有固定写死在模型内部，需要调用端提供采样率和经过确认的转换规则。\n\n当前实现使用原生 FFT bin 顺序，不应未经确认自动执行 `fftshift`。"
+  },
+  {
+    "chunk_id": "17fd1669da10",
+    "source": "04_multi_window_fft_reference.md",
+    "chunk_index": 0,
+    "content": "# 多窗口 FFT 参考机制\n\n## 窗口设置\n\nFFT 分支默认使用 32、64、128 三种窗口，并使用 Hann 窗。hop size 为对应窗口长度的八分之一。\n\n- 短窗口更偏向时间定位；\n- 长窗口更偏向频率分辨率；\n- 多窗口组合为模型提供不同时间—频率分辨率下的参考证据。\n\n## 处理与融合"
+  },
+  {
+    "chunk_id": "6a7df2bd818f",
+    "source": "04_multi_window_fft_reference.md",
+    "chunk_index": 1,
+    "content": "多窗口组合为模型提供不同时间—频率分辨率下的参考证据。\n\n## 处理与融合\n\nFFT 幅度经过 `log1p` 等处理形成参考先验，随后经过对齐、自适应权重和门控残差机制融合进可学习的神经特征。\n\n## FFT 在模型中的角色\n\n必须区分以下概念：\n\n- FFT 是显式频谱参考证据；\n- FFT 图不是 NCSD-Net 的最终输出；"
+  },
+  {
+    "chunk_id": "465688e82662",
+    "source": "04_multi_window_fft_reference.md",
+    "chunk_index": 2,
+    "content": "FT 是显式频谱参考证据；\n- FFT 图不是 NCSD-Net 的最终输出；\n- 最终时频图由神经特征、跨尺度交互、尺度融合和 Spectral Head 共同产生；\n- 模型学习的是如何使用和校正 FFT 参考，而不是简单复制 FFT。\n\n## 实验证据边界\n\n结构消融显示，去除 FFT 会降低主要分组的频率支撑恢复率，低信噪比分组下降更明显。"
+  },
+  {
+    "chunk_id": "1976e85e3f23",
+    "source": "04_multi_window_fft_reference.md",
+    "chunk_index": 3,
+    "content": "消融显示，去除 FFT 会降低主要分组的频率支撑恢复率，低信噪比分组下降更明显。另一方面，单窗口 FFT 在部分重建误差上可能更低，而多窗口自适应融合并非所有指标都占优。\n\n因此合理结论是：多窗口 FFT 有助于特定条件下的支撑恢复，并体现覆盖能力与稠密重建质量之间的权衡；不能宣称它在所有指标上都带来提升。"
+  },
+  {
+    "chunk_id": "776393442e21",
+    "source": "04_multi_window_fft_reference.md",
+    "chunk_index": 4,
+    "content": "，并体现覆盖能力与稠密重建质量之间的权衡；不能宣称它在所有指标上都带来提升。\n\n在 700 条分层机制干预子集中的 300 条低信噪比样本上，完整模型 Peak F1 为 0.1855，删除 FFT 参考后为 0.1686。该结果只适用于同一子集内的配对解释，不能与冻结主协议的低信噪比结果直接比较。"
+  },
+  {
+    "chunk_id": "2003ccd9c5a6",
+    "source": "05_checkpoint_roles.md",
+    "chunk_index": 0,
+    "content": "# NCSD-Net 检查点角色\n\n## 冻结主测试模型\n\n```text\noutputs/checkpoints/NCSD-Net/frozen_test/best_primary.pth\n```\n\n用途包括冻结测试集主实验、hit rate、稠密重建指标和 GFSC@K。文件大小为 3,991,622 bytes。已核查的 SHA-256 摘要以 `3C04` 开头、以 `BE` 结尾；"
+  },
+  {
+    "chunk_id": "ba143dfbee1e",
+    "source": "05_checkpoint_roles.md",
+    "chunk_index": 1,
+    "content": "es。已核查的 SHA-256 摘要以 `3C04` 开头、以 `BE` 结尾；正式部署必须保存和校验完整哈希。\n\n冻结主模型不能被 MATLAB 应用检查点自动替代。\n\n## 严格峰值检测器\n\n```text\noutputs/checkpoints/NCSD-Net/strict_peak_detector/best_peak_detector.pth\n```"
+  },
+  {
+    "chunk_id": "307a4e031488",
+    "source": "05_checkpoint_roles.md",
+    "chunk_index": 2,
+    "content": "ak_detector/best_peak_detector.pth\n```\n\n该检查点用于严格 Peak Precision、Peak Recall 和 Peak F1 检测。文件大小为 95,557 bytes，已核查的 SHA-256 摘要以 `88AA` 开头、以 `C8` 结尾。\n\n严格峰值检测器依赖冻结基础时频模型，不能单独作为完整 NCSD-Net 时频模型运行。"
+  },
+  {
+    "chunk_id": "38ce6f3b9a93",
+    "source": "05_checkpoint_roles.md",
+    "chunk_index": 3,
+    "content": "测器依赖冻结基础时频模型，不能单独作为完整 NCSD-Net 时频模型运行。\n\n## MATLAB 应用模型\n\n```text\noutputs/checkpoints/NCSD-Net/matlab_application/best_peak_recall.pth\n```\n\n该检查点用于 MATLAB 可控信号应用实验。"
+  },
+  {
+    "chunk_id": "ebd8a6c39ab6",
+    "source": "05_checkpoint_roles.md",
+    "chunk_index": 4,
+    "content": "_recall.pth\n```\n\n该检查点用于 MATLAB 可控信号应用实验。文件大小为 6,009,551 bytes，已核查的 SHA-256 摘要以 `60D2` 开头、以 `A4` 结尾。\n\nMATLAB 应用检查点不能用于宣称冻结测试集主结果。\n\n## 使用原则\n\nAgent 可以选择任务类型，但不能允许用户自由传入任意检查点路径。任务类型与检查点的映射应由受控后端固定。"
+  },
+  {
+    "chunk_id": "534195d52c16",
+    "source": "05_checkpoint_roles.md",
+    "chunk_index": 5,
+    "content": "，但不能允许用户自由传入任意检查点路径。任务类型与检查点的映射应由受控后端固定。结构消融、损失消融、冻结主模型、MATLAB 应用模型和峰值检测器承担不同角色，不能互换。"
+  },
+  {
+    "chunk_id": "fc01644f2804",
+    "source": "06_metrics_and_protocols.md",
+    "chunk_index": 0,
+    "content": "# NCSD-Net 指标与实验协议\n\n## 指标区别\n\n### hit rate\n\nhit rate 衡量真实频率支撑是否落入预测候选频率附近，容差为 2 个频点。它主要反映目标覆盖能力，不充分惩罚误检，不能称为 Peak F1。\n\n### GFSC@K\n\nGFSC@K 将二维时频图沿时间维聚合，再取全局 Top-K 候选频率计算支撑覆盖率。"
+  },
+  {
+    "chunk_id": "34e5d8b383c3",
+    "source": "06_metrics_and_protocols.md",
+    "chunk_index": 1,
+    "content": "C@K 将二维时频图沿时间维聚合，再取全局 Top-K 候选频率计算支撑覆盖率。它是全局频率支撑覆盖指标，不能与 hit rate 或 Peak F1 直接比较。\n\n### Peak Precision、Recall 与 F1\n\n这些指标来自严格峰值检测的一对一匹配。结果依赖 NMS、阈值、候选数、真实分量数和匹配容差。不同阈值和检测协议下的 Peak F1 不能直接比较。"
+  },
+  {
+    "chunk_id": "a5e647323dcf",
+    "source": "06_metrics_and_protocols.md",
+    "chunk_index": 2,
+    "content": "真实分量数和匹配容差。不同阈值和检测协议下的 Peak F1 不能直接比较。\n\n### FP/frame 与 Localization MAE\n\nFP/frame 是每帧平均误检峰值数，越小越好，应结合 Recall 或 F1 解释。Localization MAE 是成功匹配峰值的平均频点定位误差，只描述已匹配峰值的位置误差。\n\n### 稠密重建指标"
+  },
+  {
+    "chunk_id": "fde40705f893",
+    "source": "06_metrics_and_protocols.md",
+    "chunk_index": 3,
+    "content": "峰值的平均频点定位误差，只描述已匹配峰值的位置误差。\n\n### 稠密重建指标\n\nWeighted L2 和 MSE 越小越好；PSNR 越大越好；Rényi entropy 通常越小表示能量更集中。这些指标描述稠密时频图，不等价于峰值检测性能。\n\n## 主要实验协议\n\n### FROZEN_SUPPORT_V1"
+  },
+  {
+    "chunk_id": "9a648a91cdad",
+    "source": "06_metrics_and_protocols.md",
+    "chunk_index": 4,
+    "content": "测性能。\n\n## 主要实验协议\n\n### FROZEN_SUPPORT_V1\n\n输出 hit rate、Weighted L2、MSE、PSNR 和 Rényi entropy。只允许在同协议、同分组、同指标下比较。\n\n### FROZEN_STRICT_MAIN_V1"
+  },
+  {
+    "chunk_id": "a017bb48e8ea",
+    "source": "06_metrics_and_protocols.md",
+    "chunk_index": 5,
+    "content": "同分组、同指标下比较。\n\n### FROZEN_STRICT_MAIN_V1\n\n输出 Peak Precision、Peak Recall、Peak F1、FP/frame 和 Localization MAE。核心规则包括逐帧一维 NMS、最小峰间隔 4、Hungarian 一对一匹配、容差 2 个频点、已知真实分量数 K，以及最大候选数 `2.5K`。"
+  },
+  {
+    "chunk_id": "f6c56d99bbe9",
+    "source": "06_metrics_and_protocols.md",
+    "chunk_index": 6,
+    "content": "一匹配、容差 2 个频点、已知真实分量数 K，以及最大候选数 `2.5K`。\n\n### Frozen GFSC@K / Table S5\n\n输出 GFSC@K，只能与同一表和同一分组中的 GFSC@K 结果比较。\n\n### MATLAB fixed operating point / Table S6"
+  },
+  {
+    "chunk_id": "897dc068b061",
+    "source": "06_metrics_and_protocols.md",
+    "chunk_index": 7,
+    "content": "ATLAB fixed operating point / Table S6\n\n输出场景级 Peak F1，只能在同一场景和同一工作点下比较，不能与冻结严格峰值结果直接横向比较。\n\n### MATLAB same-FP\n\n比较相同误检水平下的 Recall，属于曲线级比较，不等于固定阈值表格结果。\n\n### 消融与机制干预"
+  },
+  {
+    "chunk_id": "82f98b4ce686",
+    "source": "06_metrics_and_protocols.md",
+    "chunk_index": 8,
+    "content": "call，属于曲线级比较，不等于固定阈值表格结果。\n\n### 消融与机制干预\n\n结构消融、正式因果消融和 FFT 删除干预只用于解释组件或目标函数贡献，不能替代冻结主实验，也不能外推到全部测试集。"
+  },
+  {
+    "chunk_id": "4d4967bcfe09",
+    "source": "07_results_summary.md",
+    "chunk_index": 0,
+    "content": "# NCSD-Net 主要实验结果摘要\n\n## 冻结支撑恢复与重建质量\n\n在 `FROZEN_SUPPORT_V1` 的 3500 条冻结样本中，NCSD-Net Overall hit rate 为 0.948271，TFA-Net 为 0.872569，HCTFR-Net 项目复现结果为 0.797715。\n\nNCSD-Net 的支撑覆盖能力较好，但并非所有重建指标最优。"
+  },
+  {
+    "chunk_id": "cf73b6f9d2a1",
+    "source": "07_results_summary.md",
+    "chunk_index": 1,
+    "content": "797715。\n\nNCSD-Net 的支撑覆盖能力较好，但并非所有重建指标最优。HCTFR-Net 的 MSE 为 16.618754、PSNR 为 20.391590，优于 NCSD-Net 对应结果。因此不能声称 NCSD-Net 在全部指标上全面领先。"
+  },
+  {
+    "chunk_id": "c06f44351158",
+    "source": "07_results_summary.md",
+    "chunk_index": 2,
+    "content": "D-Net 对应结果。因此不能声称 NCSD-Net 在全部指标上全面领先。\n\n数据来源：`outputs/paper_figures/paper_ready/source_data/table_hctfr_frozen_protocol.csv`。\n\n## 严格峰值检测\n\n在 `FROZEN_STRICT_MAIN_V1` 的 Overall 分组中："
+  },
+  {
+    "chunk_id": "89d29fe4e70c",
+    "source": "07_results_summary.md",
+    "chunk_index": 3,
+    "content": "`FROZEN_STRICT_MAIN_V1` 的 Overall 分组中：\n\n- NCSD-Net Peak F1：0.374176；\n- TFA-Net Peak F1：0.322781；\n- HCTFR-Net Peak F1：0.319155；\n- NCSD-Net FP/frame：2.1935。\n\n在固定阈值 0 的 Low-SNR 分组中："
+  },
+  {
+    "chunk_id": "d711ad473f66",
+    "source": "07_results_summary.md",
+    "chunk_index": 4,
+    "content": "/frame：2.1935。\n\n在固定阈值 0 的 Low-SNR 分组中：\n\n- NCSD-Net Peak F1：0.190849；\n- TFA-Net Peak F1：0.222030；\n- HCTFR-Net Peak F1：0.229682。"
+  },
+  {
+    "chunk_id": "fca27382c706",
+    "source": "07_results_summary.md",
+    "chunk_index": 5,
+    "content": ".222030；\n- HCTFR-Net Peak F1：0.229682。\n\n这说明 NCSD-Net 在 Overall 分组表现较好，但低信噪比严格检测结果受阈值和置信度校准影响，不能根据 hit rate 直接推断 Peak F1。"
+  },
+  {
+    "chunk_id": "e7602b9ea6be",
+    "source": "07_results_summary.md",
+    "chunk_index": 6,
+    "content": "阈值和置信度校准影响，不能根据 hit rate 直接推断 Peak F1。\n\n数据来源：`outputs/paper_figures/paper_ready/source_data/table_hctfr_strict_peak_audited_per_sample.csv`。\n\n## GFSC@K"
+  },
+  {
+    "chunk_id": "9b4cc0278074",
+    "source": "07_results_summary.md",
+    "chunk_index": 7,
+    "content": "ak_audited_per_sample.csv`。\n\n## GFSC@K\n\n在 Table S5 的五个 GFSC@K 分组中，NCSD-Net 均为最高，Overall 为 0.409332。该结果只说明全局频率支撑覆盖能力，不能称为 Peak F1 或 hit rate。"
+  },
+  {
+    "chunk_id": "394e4136c71a",
+    "source": "07_results_summary.md",
+    "chunk_index": 8,
+    "content": "只说明全局频率支撑覆盖能力，不能称为 Peak F1 或 hit rate。\n\n数据来源：`outputs/paper_figures/paper_ready/source_data/tableS5_global_frequency_support_coverage_clarified.csv`。\n\n## MATLAB 可控信号实验"
+  },
+  {
+    "chunk_id": "fff95f27e2b0",
+    "source": "07_results_summary.md",
+    "chunk_index": 9,
+    "content": "rage_clarified.csv`。\n\n## MATLAB 可控信号实验\n\n在 Table S6 的六个 MATLAB 场景中，NCSD-Net 获得 3 个第一、2 个第二和 1 个第三，并非所有场景领先。该实验使用 MATLAB 应用检查点，不能与冻结主测试直接比较。"
+  },
+  {
+    "chunk_id": "e5a822ea4b22",
+    "source": "07_results_summary.md",
+    "chunk_index": 10,
+    "content": "有场景领先。该实验使用 MATLAB 应用检查点，不能与冻结主测试直接比较。\n\n数据来源：`outputs/paper_figures/paper_ready/source_data/table_matlab_strict_peak_extended_baselines_clean.csv`。\n\n## 效率\n\nNCSD-Net 参数量约为 0.481904 M。"
+  },
+  {
+    "chunk_id": "36cc1ee8cf07",
+    "source": "07_results_summary.md",
+    "chunk_index": 11,
+    "content": "csv`。\n\n## 效率\n\nNCSD-Net 参数量约为 0.481904 M。在 Python 3.10.20、PyTorch 2.9.0+cu128、CUDA 12.8、RTX 5090、batch=1 条件下，平均模型前向耗时约为 10.582457 ms/sample。\n\n该耗时不包含上传、切窗、绘图、Agent和大模型延迟。Profiler 也可能未完整覆盖 FFT 或自定义算子。"
+  },
+  {
+    "chunk_id": "bab803569e27",
+    "source": "07_results_summary.md",
+    "chunk_index": 12,
+    "content": "nt和大模型延迟。Profiler 也可能未完整覆盖 FFT 或自定义算子。\n\n数据来源：`outputs/results/model_efficiency.csv`。"
+  },
+  {
+    "chunk_id": "81ec6b9a17d0",
+    "source": "08_limitations_and_common_errors.md",
+    "chunk_index": 0,
+    "content": "# NCSD-Net 限制与常见错误\n\n## 已知限制\n\n- 固定阈值 0 时，NCSD-Net 的 Low-SNR 严格 Peak F1 低于 TFA-Net 和 HCTFR-Net；\n- 在部分 MATLAB weak 场景中并非第一；\n- HCTFR-Net 项目复现在冻结协议的 MSE、PSNR 和 Rényi entropy 指标上更好；\n- 峰值置信度可能需要针对部署数据重新校准；"
+  },
+  {
+    "chunk_id": "d0811a5bb9e1",
+    "source": "08_limitations_and_common_errors.md",
+    "chunk_index": 1,
+    "content": "i entropy 指标上更好；\n- 峰值置信度可能需要针对部署数据重新校准；\n- 严格检测协议使用已知真实分量数 K，并限制候选数为 `2.5K`，不能直接描述成完全盲检测；\n- 批量在线推理采用整批归一化还是逐样本归一化仍待确认；\n- 任意长度信号的滑窗、重叠和拼接策略尚未形成唯一标准；\n- 采样率、频率 bin 到 Hz 的映射和外部频率校准取决于应用端；"
+  },
+  {
+    "chunk_id": "5ee5cf672061",
+    "source": "08_limitations_and_common_errors.md",
+    "chunk_index": 2,
+    "content": "标准；\n- 采样率、频率 bin 到 Hz 的映射和外部频率校准取决于应用端；\n- HCTFR-Net 是项目内复现结果，不代表作者官方实现。\n\n## 常见错误\n\n### 混淆 hit rate、GFSC@K 与 Peak F1"
+  },
+  {
+    "chunk_id": "4d3397db28af",
+    "source": "08_limitations_and_common_errors.md",
+    "chunk_index": 3,
+    "content": "常见错误\n\n### 混淆 hit rate、GFSC@K 与 Peak F1\n\n0.948271 是冻结协议 Overall hit rate，0.409332 是 S5 Overall GFSC@K，0.374176 是严格峰值检测 Overall Peak F1。三个数值含义不同。\n\n### 跨协议比较"
+  },
+  {
+    "chunk_id": "8450921aee77",
+    "source": "08_limitations_and_common_errors.md",
+    "chunk_index": 4,
+    "content": "测 Overall Peak F1。三个数值含义不同。\n\n### 跨协议比较\n\n不能用 MATLAB S6 场景的 Peak F1 与冻结测试集 Overall Peak F1 判断模型进步或退步。\n\n### 把 FFT 当作最终输出\n\nFFTReferenceBranch 只提供多窗口频谱参考。最终时频表示来自神经特征提取、跨尺度交互、融合和 Spectral Head。"
+  },
+  {
+    "chunk_id": "5e83a07f658e",
+    "source": "08_limitations_and_common_errors.md",
+    "chunk_index": 5,
+    "content": "终时频表示来自神经特征提取、跨尺度交互、融合和 Spectral Head。\n\n### 使用错误检查点\n\n冻结主结果使用 `best_primary.pth`；严格检测使用冻结基础模型加 `best_peak_detector.pth`；MATLAB 场景使用 `best_peak_recall.pth`。\n\n### 分别归一化 I/Q\n\n分别归一化会改变实部和虚部的相对幅度关系。"
+  },
+  {
+    "chunk_id": "1692e780418c",
+    "source": "08_limitations_and_common_errors.md",
+    "chunk_index": 6,
+    "content": "`。\n\n### 分别归一化 I/Q\n\n分别归一化会改变实部和虚部的相对幅度关系。I/Q 应共享同一个复幅值最大值。\n\n### 擅自执行 fftshift\n\n当前实现使用原生 FFT bin 顺序，未经确认执行 `fftshift` 会导致输出与标签错位。\n\n### 只看 hit rate 宣称检测最好\n\nhit rate 不充分惩罚误检。"
+  },
+  {
+    "chunk_id": "3cef12842c53",
+    "source": "08_limitations_and_common_errors.md",
+    "chunk_index": 7,
+    "content": "## 只看 hit rate 宣称检测最好\n\nhit rate 不充分惩罚误检。严格检测需要同时看 Precision、Recall、F1 和 FP/frame。\n\n### 忽略阈值来源\n\nLow-SNR 固定阈值 0 与验证集选定阈值 -10 的结果不是同一工作点，不能合并或取平均。\n\n### 使用旧Word表格作为数值真值\n\n规范化 CSV、JSON 和协议注册表应作为优先数值来源。"
+  },
+  {
+    "chunk_id": "f264ccc3dcb3",
+    "source": "08_limitations_and_common_errors.md",
+    "chunk_index": 8,
+    "content": "d表格作为数值真值\n\n规范化 CSV、JSON 和协议注册表应作为优先数值来源。Word 表格与规范数据冲突时，应报告冲突，不能静默覆盖。"
+  },
+  {
+    "chunk_id": "d2f8317d2c26",
+    "source": "09_agent_answer_policy.md",
+    "chunk_index": 0,
+    "content": "# SignalLab Agent 回答规范\n\n## 实验结果回答字段\n\n当回答实验结果时，应尽可能返回：\n\n```json\n{\n\"protocol\": \"FROZEN_STRICT_MAIN_V1\",\n\"model\": \"NCSD-Net\",\n\"group\": \"Overall\",\n\"sample_count\": 3500,\n\"metric\": \"Peak F1\","
+  },
+  {
+    "chunk_id": "418582e0037a",
+    "source": "09_agent_answer_policy.md",
+    "chunk_index": 1,
+    "content": "mple_count\": 3500,\n\"metric\": \"Peak F1\",\n\"value\": 0.374176,\n\"direction\": \"higher_is_better\",\n\"aggregation\": \"mean_of_per_sample_metrics\",\n\"checkpoint_role\": \"frozen_primary + strict_peak_detector\","
+  },
+  {
+    "chunk_id": "807d7d8d9c3d",
+    "source": "09_agent_answer_policy.md",
+    "chunk_index": 2,
+    "content": "frozen_primary + strict_peak_detector\",\n\"source\": \"outputs/paper_figures/paper_ready/source_data/table_hctfr_strict_peak_audited_per_sample.csv\",\n\"directly_comparable_with\": ["
+  },
+  {
+    "chunk_id": "69559213014e",
+    "source": "09_agent_answer_policy.md",
+    "chunk_index": 3,
+    "content": "ple.csv\",\n\"directly_comparable_with\": [\n\"TFA-Net and HCTFR-Net values from the same protocol and group\"\n],\n\"not_directly_comparable_with\": [\n\"hit rate\",\n\"GFSC@K\",\n\"MATLAB S6 Peak F1\","
+  },
+  {
+    "chunk_id": "48ecd5377501",
+    "source": "09_agent_answer_policy.md",
+    "chunk_index": 4,
+    "content": "t rate\",\n\"GFSC@K\",\n\"MATLAB S6 Peak F1\",\n\"low-SNR validation-selected threshold results\"\n],\n\"uncertainty\": \"none\"\n}\n```\n\n## 不确定信息\n\n如果字段在真实数据源中找不到，应返回：\n\n```json\n{\n\"value\": null,\n\"uncertainty\": \"待确认\"\n}"
+  },
+  {
+    "chunk_id": "100f93fb7d47",
+    "source": "09_agent_answer_policy.md",
+    "chunk_index": 5,
+    "content": "{\n\"value\": null,\n\"uncertainty\": \"待确认\"\n}\n```\n\nAgent 不得根据相似实验、图像观感、其他指标或语言模型常识自行补数。\n\n## 拒绝和澄清规则\n\n- 如果用户要求跨协议直接比较，应指出协议不一致并要求选择相同协议；\n- 如果同一指标存在多个阈值，应同时说明阈值和来源；"
+  },
+  {
+    "chunk_id": "91c2515c5dac",
+    "source": "09_agent_answer_policy.md",
+    "chunk_index": 6,
+    "content": "一致并要求选择相同协议；\n- 如果同一指标存在多个阈值，应同时说明阈值和来源；\n- 如果问题将 hit rate、GFSC@K 或 Peak F1 混用，应先解释区别；\n- 如果问题要求提供物理 Hz 而没有采样率，应说明无法完成频率换算；\n- 如果问题要求完全盲检测，但证据来自已知 K 的协议，应明确评估边界；\n- 如果没有可靠来源，应回答“知识库中没有足够依据”，而不是猜测。"
+  }
+]
