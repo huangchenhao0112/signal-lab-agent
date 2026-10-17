@@ -5,7 +5,9 @@ from unittest.mock import AsyncMock
 from fastapi.testclient import TestClient
 
 from app.agent_runtime import AgentRuntime
+import pytest
 
+pytestmark = pytest.mark.integration
 
 def test_chat_without_token(
     client: TestClient,
